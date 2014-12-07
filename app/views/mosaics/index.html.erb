@@ -1,0 +1,23 @@
+<h1>Listing mosaics</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mosaics.each do |mosaic| %>
+  <tr>
+    <td><%= mosaic.name %></td>
+    <td><%= link_to 'Show', mosaic %></td>
+    <td><%= link_to 'Edit', edit_mosaic_path(mosaic) %></td>
+    <td><%= link_to 'Destroy', mosaic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mosaic', new_mosaic_path %>
