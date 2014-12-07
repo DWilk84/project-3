@@ -11,10 +11,12 @@ module MosaicMaker
     tile_width = 100
     tile_height = 100
     output_directory = "#{Rails.public_path}/uploads/mosaic"
+    # output_directory = "#{Rails.root}/tmp"
     
     output_filename = @mosaic.name
     path = "#{output_directory}/#{output_filename}.jpg"
     relative_path = "/uploads/mosaic/#{output_filename}.jpg"
+    # relative_path = "/tmp/#{output_filename}.jpg"
     
     #######################################
     # collect and amend the target image
