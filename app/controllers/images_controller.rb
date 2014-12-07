@@ -22,7 +22,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(params[:image])
+    @image = current_user.images.new(params[:image])
     @image.save
     respond_with(@image)
   end
