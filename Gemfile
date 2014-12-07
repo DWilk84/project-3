@@ -11,6 +11,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'carrierwave', '0.9.0'
+gem 'rmagick'
 gem 'rails_12factor'
 
 group :development do
