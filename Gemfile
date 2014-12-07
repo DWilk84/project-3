@@ -10,7 +10,7 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-
+gem 'carrierwave', '0.9.0'
 
 
 # Gems used only for assets and not required
