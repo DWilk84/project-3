@@ -1,20 +1,16 @@
 <%= form_for(@mosaic) do |f| %>
-  <% if @mosaic.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@mosaic.errors.count, "error") %> prohibited this mosaic from being saved:</h2>
-
-      <ul>
-      <% @mosaic.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/errors", target: @mosaic %>
 
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+
+  <div>
+    <p>Select images for background tiles:</p>
+    <%= select_tag("mosaic[image_ids][]", options_for_select(current_user.images.all.collect{ |img| [img.name, img.id, {"data-img-src" => img.file.url}] }), multiple: true) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

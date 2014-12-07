@@ -1,20 +1,6 @@
 <%= form_for(@image) do |f| %>
-  <% if @image.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+  <%= render "shared/errors", target: @image %>
 
-      <ul>
-      <% @image.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :mosaic_id %><br />
-    <%= f.number_field :mosaic_id %>
-  </div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>

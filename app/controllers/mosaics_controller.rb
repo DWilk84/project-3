@@ -1,5 +1,6 @@
 class MosaicsController < ApplicationController
   before_filter :set_mosaic, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:index, :show]
 
   respond_to :html
 
@@ -21,7 +22,7 @@ class MosaicsController < ApplicationController
   end
 
   def create
-    @mosaic = Mosaic.new(params[:mosaic])
+    @mosaic = current_user.mosaics.new(params[:mosaic])
     @mosaic.save
     respond_with(@mosaic)
   end

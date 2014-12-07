@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141207173206) do
+ActiveRecord::Schema.define(:version => 20141207191626) do
 
   create_table "images", :force => true do |t|
     t.integer  "mosaic_id"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(:version => 20141207173206) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "file"
+    t.integer  "user_id"
+  end
+
+  create_table "images_mosaics", :id => false, :force => true do |t|
+    t.integer "image_id"
+    t.integer "mosaic_id"
+  end
+
+  create_table "mosaics", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "user_id"
   end
 

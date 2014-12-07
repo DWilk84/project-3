@@ -23,6 +23,7 @@ class ImagesController < ApplicationController
 
   def create
     @image = current_user.images.new(params[:image])
+    @image.name = set_name(params)
     @image.save
     respond_with(@image)
   end
@@ -40,5 +41,9 @@ class ImagesController < ApplicationController
   private
     def set_image
       @image = Image.find(params[:id])
+    end
+
+    def set_name(params)
+      params[:image]['name'].length > 0 ? params[:image]['name'] : params[:image]['file'].original_filename
     end
 end

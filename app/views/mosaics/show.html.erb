@@ -4,7 +4,11 @@
   <b>Name:</b>
   <%= @mosaic.name %>
 </p>
-
+<div>
+  <% @mosaic.images.each do |image| %>
+    <%= image_tag(image.file.url) %>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_mosaic_path(@mosaic) %> |
 <%= link_to 'Back', mosaics_path %>
