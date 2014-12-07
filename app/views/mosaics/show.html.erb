@@ -4,6 +4,10 @@
   <b>Name:</b>
   <%= @mosaic.name %>
 </p>
+
+<div>
+  <%= image_tag(@mosaic.path) %>
+</div>
 <div>
   <% @mosaic.images.each do |image| %>
     <%= image_tag(image.file.url) %>

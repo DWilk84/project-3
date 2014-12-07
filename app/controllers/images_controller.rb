@@ -23,7 +23,6 @@ class ImagesController < ApplicationController
 
   def create
     @image = current_user.images.new(params[:image])
-    # debugger
     @image.name = set_name(params[:image])
     @image.save
     respond_with(@image)

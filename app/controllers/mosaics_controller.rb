@@ -24,6 +24,8 @@ class MosaicsController < ApplicationController
   def create
     @mosaic = current_user.mosaics.new(params[:mosaic])
     @mosaic.save
+    path = MosaicMaker.create_new(@mosaic)
+    @mosaic.update_attribute(:path, path)
     respond_with(@mosaic)
   end
 
@@ -38,7 +40,7 @@ class MosaicsController < ApplicationController
   end
 
   private
-    def set_mosaic
-      @mosaic = Mosaic.find(params[:id])
-    end
+  def set_mosaic
+    @mosaic = Mosaic.find(params[:id])
+  end
 end
