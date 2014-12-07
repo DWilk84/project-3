@@ -10,7 +10,7 @@ module MosaicMaker
     max_width = 1000
     tile_width = 100
     tile_height = 100
-    output_directory = "/Users/davidwilkinson/Google_Drive/General_Assembly/WDI9/WDI_LDN_9_Projects/Project_3/pixelpic/public/uploads/mosaic"
+    output_directory = "#{Rails.public_path}/uploads/mosaic"
     
     output_filename = @mosaic.name
     path = "#{output_directory}/#{output_filename}.jpg"
