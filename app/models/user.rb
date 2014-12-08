@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
   def populate_user_fields(auth, user, kind)
     case kind
     when "Facebook"
-      binding.pry
       user.name = auth.info.name if !auth.info.name.nil? && user.name.blank?
       user.email = auth.info.email if !auth.info.email.nil? && user.email.blank?
       # user.image = auth.info.image if !auth.info.image.nil? && user.image.blank?
