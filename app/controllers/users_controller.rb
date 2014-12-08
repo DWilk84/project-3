@@ -6,8 +6,10 @@ class UsersController < Devise::RegistrationsController
 
   def create
     # run default version defined in Devise::RegistrationsController
+    auth_session = session["devise.authentication"]
     super
 
+    Provider.authenticate(auth_session, @user, auth_session["provider"] )
     # then add our custom logic
     @user.role = "user"
     @user.save!

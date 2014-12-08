@@ -1,25 +1,12 @@
-<h1>Listing images</h1>
+<h1>My images</h1>
 
-<table>
-  <tr>
-    <th>Mosaic</th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @images.each do |image| %>
-  <tr>
-    <td><%= image.mosaic_id %></td>
-    <td><%= image.name %></td>
-    <td><%= link_to 'Show', image %></td>
-    <td><%= link_to 'Edit', edit_image_path(image) %></td>
-    <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <div class: "input_image">
+    <%= image_tag(image.file.url) %>
+  </div>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Image', new_image_path %>
+<div>
+  <%= link_to 'New Image', new_image_path %>  
+</div>

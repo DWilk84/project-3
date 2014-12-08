@@ -5,6 +5,7 @@ class ImagesController < ApplicationController
   respond_to :html
 
   def index
+    # @images = current_user.images
     @images = Image.all
     respond_with(@images)
   end
