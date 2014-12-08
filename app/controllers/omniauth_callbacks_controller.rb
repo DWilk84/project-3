@@ -12,7 +12,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def handle_callback(kind)
-    binding.pry
+    # binding.pry
     auth = User.map_authentication_to_user_properties(request.env["omniauth.auth"])
     @user = User.find_by_email(auth.info.email)  || Provider.authenticate(auth, current_user, kind)
 
