@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141207213032) do
+ActiveRecord::Schema.define(:version => 20141208155139) do
 
   create_table "images", :force => true do |t|
     t.integer  "mosaic_id"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(:version => 20141207213032) do
     t.string   "path"
   end
 
+  create_table "providers", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "auth_token"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -49,6 +58,8 @@ ActiveRecord::Schema.define(:version => 20141207213032) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"
+    t.string   "name"
+    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
