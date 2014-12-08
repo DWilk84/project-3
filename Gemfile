@@ -15,8 +15,10 @@ gem 'rmagick'
 gem 'rails_12factor'
 gem 'aws-sdk'
 
+gem 'pry-byebug'
+
 group :development do
-  gem 'pry-byebug'
+  
   gem 'better_errors'
   gem 'binding_of_caller'
 end
