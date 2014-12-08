@@ -13,10 +13,10 @@ module MosaicMaker
     output_directory = "#{Rails.public_path}/uploads/mosaic"
     # output_directory = "#{Rails.root}/tmp"
     
-    output_filename = @mosaic.name
-    path = "#{output_directory}/#{output_filename}.jpg"
-    relative_path = "/uploads/mosaic/#{output_filename}.jpg"
-    # relative_path = "/tmp/#{output_filename}.jpg"
+    output_filename = "#{@mosaic.name}.jpg"
+    path = "#{output_directory}/#{output_filename}"
+    relative_path = "/uploads/mosaic/#{output_filename}"
+    # relative_path = "/tmp/#{output_filename}"
     
     #######################################
     # collect and amend the target image
@@ -74,11 +74,19 @@ module MosaicMaker
     end
     
     #######################################
+    # generate an instance of the AWS S3 interface
+    s3 = AWS::S3.new
+    b = s3.buckets["pixelpic"]
+
+    #######################################
     # create the output image by overcompositing (using RMagick dissolve method) the
     # target image onto the background and then writing this to the AWS folder
     puts "writing output"
     
     tiled_image.dissolve(target_image, "80%", 1.00).write(path)
+
+    o = b.objects[output_filename]
+    o.write(file: path)
 
     # # can create 10 images with varying degrees of dissolve property from 0-100% as follows:
     # (0..100).step(10).each do |x|
@@ -93,7 +101,9 @@ module MosaicMaker
     endTime = Time.now
     puts "#{(endTime - startTime)} seconds"
 
-    relative_path
+    # return the file path
+    path = o.url_for(:read).to_s
+
   end
 
 end
