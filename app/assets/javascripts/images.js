@@ -22,8 +22,22 @@ $(function(){
   });
 
   $('.upload_fb_pics').on('click', function(){
-    var $pics = $('.fb_pic.selected');
-    debugger;
+    var pics = $('.fb_pic.selected');
+
+    $.each(pics, function(k, v){
+      var data = {
+        remote_file_url: v.src,
+        name: "fb_upload_pic"
+      };
+      $.ajax({
+        url: "/images",
+        type: "POST",
+        dataType: "JSON",
+        data: {image: data}
+      });
+      // debugger;
+
+    });
   });
 
 

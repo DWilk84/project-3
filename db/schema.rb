@@ -11,15 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141208155139) do
+ActiveRecord::Schema.define(:version => 20141209125427) do
 
   create_table "images", :force => true do |t|
     t.integer  "mosaic_id"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "file"
     t.integer  "user_id"
+    t.string   "remote_file_url"
   end
 
   create_table "images_mosaics", :id => false, :force => true do |t|
