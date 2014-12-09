@@ -14,6 +14,7 @@ gem 'carrierwave', '0.9.0'
 gem 'rmagick'
 gem 'rails_12factor'
 gem 'aws-sdk'
+gem "koala"
 
 group :development do
   gem 'pry-byebug'

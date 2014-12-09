@@ -1,0 +1,25 @@
+<div>
+  <button class="upload_fb_pics">Upload Selected Images</button>
+</div>
+
+<div class="fb_select">
+  <h3>Select Facebook images:</h3>
+  <button class="add_all_albums">Select all albums</button>
+  <% @fb_albums.each do |fb_album| %>
+  <div class="album_container">
+    <li><%= fb_album['name'] %></li>
+    <button class="add_album">Select this album</button>
+    <div class="pictures_container">
+      <% fb_album['urls'].each do |url| %>
+        <div class="fb_pic_container">
+          <%= image_tag(url, class: "fb_pic") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+    
+  <% end %>
+</div>
+
+
+

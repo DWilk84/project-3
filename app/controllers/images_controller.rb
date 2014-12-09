@@ -7,7 +7,6 @@ class ImagesController < ApplicationController
   def index
     # @images = current_user.images
     @images = Image.all
-    respond_with(@images)
   end
 
   def show
@@ -16,7 +15,9 @@ class ImagesController < ApplicationController
 
   def new
     @image = Image.new
-    respond_with(@image)
+    current_user ? (@fb_albums = User.get_fb_albums(current_user)) : nil
+    # binding.pry
+    respond_with(@images, @fb_albums)
   end
 
   def edit

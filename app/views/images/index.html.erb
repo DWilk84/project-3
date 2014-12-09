@@ -1,12 +1,15 @@
 <h1>My images</h1>
 
-
+<h3>Uploaded images:</h3>
 <% @images.each do |image| %>
-  <div class: "input_image">
+  <div class="input_image">
     <%= image_tag(image.file.url) %>
   </div>
 <% end %>
 
+<h3>Facebook images:</h3>
+
+
 <div>
-  <%= link_to 'New Image', new_image_path %>  
+  <%= link_to 'New Image', new_image_path %>
 </div>

@@ -260,5 +260,5 @@ config.stretches = Rails.env.test? ? 1 : 10
   config.omniauth :facebook,
   ENV["PIXELPIC_APP_FACEBOOK_ID"],
   ENV["PIXELPIC_APP_FACEBOOK_SECRET"],
-  scope: 'email', display: 'popup'
+  {scope: 'email, public_profile, user_photos'}
 end

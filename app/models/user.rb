@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   def populate_user_fields(auth, user, kind)
     case kind
     when "Facebook"
-      binding.pry
+      # binding.pry
       user.name = auth.info.name if !auth.info.name.nil? && user.name.blank?
       user.email = auth.info.email if !auth.info.email.nil? && user.email.blank?
       # user.image = auth.info.image if !auth.info.image.nil? && user.image.blank?
@@ -50,9 +50,30 @@ class User < ActiveRecord::Base
       end
     end
   end
-
-  def get_auth_token(user)
+  
+  def self.get_auth_token(user)
     user.providers.where(provider: "facebook").first.auth_token
+  end
+
+  def self.get_fb_albums(user)
+    token = User.get_auth_token(user)
+    graph = Koala::Facebook::API.new(token)
+    
+    albums = graph.get_connections("me", "albums")
+    
+    fb_albums = albums.map do |a|
+      hash = {}
+      hash['id'] = a['id']
+      hash['name'] = a['name']
+      pics = graph.get_connections(hash['id'], "photos")
+      hash['urls'] = pics.map do |pic|
+        pic['images'].last['source']
+      end  
+      hash
+    end
+    # binding.pry
+    # puts "debug"
+    # fb_albums
   end
 
 end
