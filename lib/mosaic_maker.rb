@@ -7,7 +7,7 @@ module MosaicMaker
     #######################################
     # constants
     startTime = Time.now
-    max_width = 1000
+    max_width = 2000
     tile_width = 100
     tile_height = 100
     output_directory = "#{Rails.public_path}/uploads/mosaic"

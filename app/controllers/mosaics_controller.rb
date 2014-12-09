@@ -2,7 +2,7 @@ class MosaicsController < ApplicationController
   before_filter :set_mosaic, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
 
-  respond_to :html
+  respond_to :html, :json
 
   def index
     @mosaics = Mosaic.all
