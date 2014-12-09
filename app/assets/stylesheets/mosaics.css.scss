@@ -1,3 +1,13 @@
 // Place all the styles related to the Mosaics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#mosaic_container {
+  width: 600px;
+  height: 600px;
+
+  img {
+    max-width: 600px;
+    max-height: 600px;
+  }
+}
