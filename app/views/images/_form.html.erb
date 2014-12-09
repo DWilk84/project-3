@@ -1,13 +1,11 @@
 <%= form_for(@image) do |f| %>
   <%= render "shared/errors", target: @image %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div id="progress">
+    <div class="bar" style="width: 0%;"></div>
   </div>
   <div class="field">
     <%= f.label :file %><br />
-    <%= f.file_field :file %>
+    <%= f.file_field :file, multiple: true, name: 'image[file]' %>
   </div>
   <div class="actions">
     <%= f.submit %>

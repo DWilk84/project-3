@@ -23,7 +23,6 @@ $(function(){
 
   $('.upload_fb_pics').on('click', function(){
     var pics = $('.fb_pic.selected');
-
     $.each(pics, function(k, v){
       var data = {
         remote_file_url: v.src,
@@ -35,10 +34,20 @@ $(function(){
         dataType: "JSON",
         data: {image: data}
       });
-      // debugger;
-
     });
   });
 
-
+  $('#new_image').fileupload({
+    dataType: "JSON",
+    done: function (e, data) {
+      console.log('uploading');
+    },
+    progress: function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        $('#progress .bar').css(
+            'width',
+            progress + '%'
+        );
+    }
+  });
 });

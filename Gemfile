@@ -15,6 +15,7 @@ gem 'rmagick'
 gem 'rails_12factor'
 gem 'aws-sdk'
 gem "koala"
+gem "jquery-fileupload-rails"
 
 group :development do
   gem 'pry-byebug'

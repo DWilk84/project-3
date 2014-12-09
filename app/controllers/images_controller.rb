@@ -46,6 +46,6 @@ class ImagesController < ApplicationController
     end
 
     def set_name(params)
-      @image.name.length > 0 ? @image.name : params['file'].original_filename
+      @image.name = params['file'].original_filename || "uploaded image"
     end
 end

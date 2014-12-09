@@ -26,7 +26,6 @@ module MosaicMaker
 
     width = target_image.columns.to_f
     height = target_image.rows.to_f
-    binding.pry
     width_multiplier = max_width / width
 
     width = (width * width_multiplier).to_i
