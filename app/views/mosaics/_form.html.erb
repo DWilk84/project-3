@@ -1,8 +1,3 @@
-<h3>Select images for background tiles:</h3>
-<p>Choose individual pictures by clicking the images below, or... </p>
-<button id="add_all">add all</button>
-<button id="remove_all">remove all</button>
-
 <%= form_for(@mosaic) do |f| %>
   <%= render "shared/errors", target: @mosaic %>
 
@@ -10,9 +5,16 @@
     <%= f.label :name %><br />
     <%= f.text_field :name, placeholder: "e.g. My Mosaic", required: true %>
   </div>
-
-  <div>
+  <h3>Select images for background tiles:</h3>
+  <p>Choose individual pictures by clicking the images below, or... </p>
+  <button id="add_all">add all</button>
+  <button id="remove_all">remove all</button>
+  <div id="tiles">
     <%= select_tag("mosaic[image_ids][]", options_for_select(current_user.images.all.collect{ |img| [img.name, img.id, {"data-img-src" => img.file.url}] }), multiple: true) %>
+  </div>
+    <h3>Select your main image:</h3>
+  <div id="target">
+    <%= select_tag("mosaic[image_ids][]", options_for_select(current_user.images.all.collect{ |img| [img.name, img.id, {"data-img-src" => img.file.url}] })) %>
   </div>
 
   <div class="actions">

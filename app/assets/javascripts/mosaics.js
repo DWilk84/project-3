@@ -6,12 +6,15 @@ $(function(){
   $('select').imagepicker({});
 
   $('#add_all').on('click', function(){
-    $('option').attr('selected', true);
-    $('.thumbnail').addClass('selected');
+    // debugger;
+    event.preventDefault();
+    $('#tiles').find('option').attr('selected', true);
+    $('#tiles').find('.thumbnail').addClass('selected');
   });
 
   $('#remove_all').on('click', function(){
-    $('option').attr('selected', false);
-    $('.thumbnail').removeClass('selected')
+    event.preventDefault();
+    $('#tiles').find('option').attr('selected', false);
+    $('#tiles').find('.thumbnail').removeClass('selected');
   });
 });
