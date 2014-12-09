@@ -26,13 +26,14 @@ module MosaicMaker
 
     width = target_image.columns.to_f
     height = target_image.rows.to_f
-    
+    binding.pry
     width_multiplier = max_width / width
 
     width = (width * width_multiplier).to_i
     height = (height * width_multiplier).to_i
+    height = height - height % tile_height
 
-    target_image = target_image.resize_to_fit(width, height)
+    target_image = target_image.resize_to_fill(width, height, NorthGravity)
     
     #######################################
     # collect the list of images for the background tiles
