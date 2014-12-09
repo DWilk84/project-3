@@ -25,7 +25,7 @@ class ImagesController < ApplicationController
 
   def create
     @image = current_user.images.new(params[:image])
-    @image.name = set_name(params[:image])
+    @image.name ||= set_name(params[:image])
     @image.save
     respond_with(@image)
   end
@@ -46,6 +46,6 @@ class ImagesController < ApplicationController
     end
 
     def set_name(params)
-      @image.name = (params['file'].original_filename.nil? ? params['file'].original_filename : "uploaded image")
+      @image.name = (params['file'].original_filename || "uploaded image")
     end
 end
