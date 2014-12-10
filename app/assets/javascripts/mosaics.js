@@ -17,4 +17,6 @@ $(function(){
     $('#tiles').find('option').attr('selected', false);
     $('#tiles').find('.thumbnail').removeClass('selected');
   });
+
+  $('#zoom_01').elevateZoom();
 });
