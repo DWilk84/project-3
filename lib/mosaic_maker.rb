@@ -34,7 +34,7 @@ module MosaicMaker
     height = (height * width_multiplier).to_i
     height = height - height % tile_height
 
-    target_image = target_image.resize_to_fill(width, height, NorthGravity)
+    target_image = target_image.resize_to_fill(width, height, CenterGravity)
     
     #######################################
     # collect the list of images for the background tiles
