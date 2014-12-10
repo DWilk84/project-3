@@ -7,16 +7,18 @@ module MosaicMaker
     #######################################
     # constants
     startTime = Time.now
-    max_width = 2000
+    max_width_large = 2000
+    max_width_small = 400
+    small_width_multiplier = max_width_small.to_f / max_width_large.to_f
     tile_width = 100
     tile_height = 100
     output_directory = "#{Rails.public_path}/uploads/mosaic"
-    # output_directory = "#{Rails.root}/tmp"
     
-    output_filename = "#{@mosaic.name}.jpg"
-    path = "#{output_directory}/#{output_filename}"
-    relative_path = "/uploads/mosaic/#{output_filename}"
-    # relative_path = "/tmp/#{output_filename}"
+    output_filename_large = "mosaic_#{@mosaic.id}_#{@mosaic.name}_large.jpg"
+    output_filename_small = "mosaic_#{@mosaic.id}_#{@mosaic.name}_small.jpg"
+
+    path_large = "#{output_directory}/#{output_filename_large}"
+    path_small = "#{output_directory}/#{output_filename_small}"
     
     #######################################
     # collect and amend the target image
@@ -26,7 +28,7 @@ module MosaicMaker
 
     width = target_image.columns.to_f
     height = target_image.rows.to_f
-    width_multiplier = max_width / width
+    width_multiplier = max_width_large / width
 
     width = (width * width_multiplier).to_i
     height = (height * width_multiplier).to_i
@@ -83,11 +85,23 @@ module MosaicMaker
     # target image onto the background and then writing this to the AWS folder
     puts "writing output"
     
-    tiled_image.dissolve(target_image, "80%", 1.00).write(path)
+    t_large = tiled_image.dissolve(target_image, "80%", 1.00)
+    t_large.write(path_large)
 
-    o = b.objects[output_filename]
-    o.write(file: path)
+    width = (width * small_width_multiplier).to_i
+    height = (height * small_width_multiplier).to_i
+    t_small = t_large.resize_to_fit(width, height)
+    t_small.write(path_small)
 
+    o = b.objects[output_filename_large]
+    o.write(file: path_large)
+    path_large = o.url_for(:read).to_s
+
+    o = b.objects[output_filename_small]
+    o.write(file: path_small)
+    path_small = o.url_for(:read).to_s
+
+    paths = [path_large, path_small]
     # # can create 10 images with varying degrees of dissolve property from 0-100% as follows:
     # (0..100).step(10).each do |x|
     #   tiled_image.dissolve(target_image, "#{x}%", 1.00).write("#{output_directory}/dissolved_#{x}.jpg")
@@ -101,8 +115,8 @@ module MosaicMaker
     endTime = Time.now
     puts "#{(endTime - startTime)} seconds"
 
-    # return the file path
-    path = o.url_for(:read).to_s
+    # return the file paths
+    paths
 
   end
 

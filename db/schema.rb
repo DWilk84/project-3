@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141209125427) do
+ActiveRecord::Schema.define(:version => 20141210000001) do
 
   create_table "images", :force => true do |t|
     t.integer  "mosaic_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20141209125427) do
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
     t.string   "path"
+    t.string   "path_small"
   end
 
   create_table "providers", :force => true do |t|
