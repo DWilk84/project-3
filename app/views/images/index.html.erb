@@ -1,7 +1,16 @@
-<h1>My images</h1>
-<div id="image_uploads_container" class="cf">
+<div class="details cf">
+  <div class="instructions">
+    <h2>Step 1</h2>
+    <p>Add some images using the forms below on the left</p>
+    <p>You can see the images you've uploaded on the right</p>
+  </div>
+  <div class="next">
+    <%= link_to 'Next', new_mosaic_path %>
+  </div>  
+</div>
 
-  <!-- left -->
+
+<div id="image_uploads_container" class="cf">
   <div id="upload_area">
     <div id="upload_type_selector" class="cf">
       <div id="upload_selector_file" class="upload_selector active">
@@ -26,9 +35,6 @@
     </div>
   </div>
   
-
-
-  <!-- right -->
   <div id="uploaded_images_outer">
     <h3>Uploaded images:</h3>
     <div id="uploaded_images_inner">

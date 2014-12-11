@@ -22,7 +22,66 @@
     content: " "; /* 1 */
     display: table; /* 2 */
 }
-
 .cf:after {
     clear: both;
+}
+
+nav {
+
+}
+
+nav ul {
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 10px;
+}
+
+.details {
+  width: 90%;
+  margin: 20px auto;
+  border: 1px solid black;
+
+
+}
+.details .instructions {
+  width: 70%;
+  padding: 10px;
+  float: left;
+}
+
+.details .next {
+  width: 30%;
+  padding: 10px;
+  float: left;
+  text-align: center;
+}
+
+/* adding a loading image to the display when the mosaic is being processed*/
+.modal {
+  display:    none;
+  position:   fixed;
+  z-index:    1000;
+  top:        0;
+  left:       0;
+  height:     100%;
+  width:      100%;
+  background: rgba( 255, 255, 255, .8 ) 
+  url('https://s3-eu-west-1.amazonaws.com/pixelpic/ajax-loader.gif') 
+  50% 50% 
+  no-repeat;
+}
+
+/* When the body has the loading class, we turn
+the scrollbar off with overflow:hidden */
+body.loading {
+  overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+modal element will be visible */
+body.loading .modal {
+  display: block;
 }

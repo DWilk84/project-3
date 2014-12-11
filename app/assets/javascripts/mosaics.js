@@ -6,7 +6,6 @@ $(function(){
   $('select').imagepicker({});
 
   $('#add_all').on('click', function(){
-    // debugger;
     event.preventDefault();
     $('#tiles').find('option').attr('selected', true);
     $('#tiles').find('.thumbnail').addClass('selected');

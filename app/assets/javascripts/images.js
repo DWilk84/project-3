@@ -26,13 +26,19 @@ toggleActiveForm = function(){
 };
 
 getFacebookImages = function(){
+
+  var $body = $('body');
+  $body.addClass('loading');
+
+  var $fb_album_select = $('#fb_album_select');
+  var $fb_albums = $('#fb_albums');
+
   $.ajax({
     url: "/images",
     type: "GET",
     dataType: "JSON",
   }).success(function(data){
-    var $fb_album_select = $('#fb_album_select');
-    var $fb_albums = $('#fb_albums');
+
     $.each(data, function(k, album){
       var album_name = album.name;
       var album_value = removeSpaces(album.name);
@@ -48,6 +54,8 @@ getFacebookImages = function(){
       });
     });
   });
+  // debugger
+  $body.removeClass('loading');
 };
 
 removeSpaces = function(string){
@@ -111,6 +119,7 @@ $(function(){
   $('#upload_from_fb').on('click', '#add_album', addAlbumSelect);
   $('#upload_from_fb').on('click', '#upload_fb_images', uploadFBImages);
 
+  // multi file upload
   $('#new_image').fileupload({
     dataType: "JSON",
     done: function (e, data) {
