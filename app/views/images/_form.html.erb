@@ -1,15 +1,12 @@
-<%= form_for(@image) do |f| %>
-  <%= render "shared/errors", target: @image %>
-  <div id="progress">
-    <div class="bar" style="width: 0%;"></div>
-  </div>
-  <div class="field">
-    <%= f.label :file %><br />
-    <%= f.file_field :file, multiple: true, name: 'image[file]' %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<% if target_image %>
+  <%= form_for(target_image) do |f| %>
+    <%= render "shared/errors", target: target_image %>
+    <div id="progress">
+      <div class="bar" style="width: 0%;"></div>
+    </div>
+    <div class="field">
+      <%= f.label :file, "Click below or simply drag and drop files here" %><br />
+      <%= f.file_field :file, multiple: true, name: 'image[file]' %>
+    </div>
+  <% end %>
 <% end %>
-
-<%= render 'facebook_images' %>

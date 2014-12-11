@@ -5,15 +5,8 @@
   <%= @mosaic.name %>
 </p>
 
-<!-- <img data-zoom-image="<%#= @mosaic.path %>" id="zoom_01" src="<%#= @mosaic.path_small %>"/> -->
-
 <div id="mosaic_container">
   <%= image_tag(@mosaic.path_small, id: "zoom_01", data: {"zoom-image" => @mosaic.path}) %>
-</div>
-<div>
-  <% @mosaic.images.each do |image| %>
-    <%= image_tag(image.file.url) %>
-  <% end %>
 </div>
 
 <%= link_to 'Edit', edit_mosaic_path(@mosaic) %> |

@@ -3,25 +3,136 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.input_image, .fb_pic_container {
-  width: 100px;
-  height: 100px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  margin: 10px;
 
-  img {
-    max-width: 100px;
-    max-height: 100px;
-    box-shadow: 0px 0px 10px 5px grey;
-  }
-  .selected {
-    box-shadow: 0px 0px 10px 5px blue;
-  }
-}
 .bar {
     height: 18px;
     background: green;
 }
 
+#image_uploads_container {
+  width: 90%;
+  margin: 0 auto;
+  height: 500px;
+
+
+  #upload_area, #uploaded_images_outer {
+    width: 50%;
+    height: inherit;
+    display: inline-block;
+    float: left;
+  }
+  
+  #upload_area {
+
+    #upload_type_selector {
+      
+      div {
+        padding: 10px;
+        text-align: center;
+        display: inline-block;
+        width: 50%;
+        float: left;
+
+        a {
+          padding: 10px;
+        }
+      }
+
+      .active, .inactive {
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        border-left: 1px solid black;
+        border-bottom: 1px solid aliceblue;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        background-color: aliceblue;
+        
+      }
+      .inactive {
+        background-color: lightgrey;
+        border-bottom: 1px solid black;
+      }
+    }
+
+    #upload_forms {
+      height: 460px;
+      background-color: aliceblue;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      border-left: 1px solid black;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 10px;
+
+      #upload_from_fb {
+        display: none;
+        height: 440px;
+        overflow: auto;
+
+        #fb_album_select{
+          display: block;
+        }
+        
+        .fb_image_container {
+          display: none;
+          width: 50px;
+          height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          margin: 10px;
+
+          .fb_image {
+            display: block;
+            max-width: 50px;
+            max-height: 50px;
+            box-shadow: 0px 0px 10px 5px grey;
+          }
+
+          .selected {
+            box-shadow: 0px 0px 10px 5px blue;
+          }
+        }
+        .album_active {
+          display: inline-block;
+        }
+      }
+    }
+  }
+  #uploaded_images_outer {
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+
+
+    h3 {
+      padding: 10px;
+    }
+
+    #uploaded_images_inner {
+      height: 450px;
+      overflow: auto;
+      margin: 0 auto;
+      text-align: center;
+
+      .uploaded_image_container {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        margin: 10px;
+
+        img {
+          max-width: 50px;
+          max-height: 50px;
+          box-shadow: 0px 0px 10px 5px grey;
+        }
+        .selected {
+          box-shadow: 0px 0px 10px 5px blue;
+        }
+      }
+    }
+  }
+  
+}

@@ -1,12 +1,18 @@
 class ImagesController < ApplicationController
   before_filter :set_image, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!
 
   respond_to :html, :json
 
   def index
-    # @images = current_user.images
-    @images = Image.all
+    @images = current_user.images
+    respond_to do |format|
+      format.html
+      format.json do
+        current_user ? (@fb_albums = User.get_fb_albums(current_user)) : nil
+        respond_with(@images, @fb_albums)
+      end
+    end
   end
 
   def show
@@ -15,9 +21,7 @@ class ImagesController < ApplicationController
 
   def new
     @image = Image.new
-    current_user ? (@fb_albums = User.get_fb_albums(current_user)) : nil
-    # binding.pry
-    respond_with(@images, @fb_albums)
+    respond_with(@images)
   end
 
   def edit
