@@ -83,6 +83,12 @@
     #mosaic_body_show_mosaic {
       display: none;
 
+      #mosaic_name {
+        height: 100px;
+        padding: 10px;
+      }
+      #mosaic_show {}
+
     }
 
     .active {
@@ -101,6 +107,31 @@
   }
 }
 
+.instructions {
+  padding: 10px;
+  height: 100px;
+
+  .sudo_link {
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    width: 33.3%;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .sudo_link:hover {
+    color: white;
+    background-color: black;
+  }
+}
+.next {
+    line-height: 80px;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 5px 20px 5px 20px;
+}
 #new_mosaic {
   width: 90%;
   margin: 0 auto;

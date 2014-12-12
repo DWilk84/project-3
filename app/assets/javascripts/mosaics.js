@@ -24,13 +24,15 @@ tabSelect = function(){
 bodySelect = function(element){
   var id = element.attr('id').replace('tab', 'body');
   var $this = $('#' + id)
-  // debugger
   $('.body_tab').fadeOut();
   $this.fadeIn();
 }
 
 goToStep2 = function(){
-  
+  $this = $('#mosaic_tab_pick_target')
+  $this.addClass('active');
+  $this.siblings().removeClass('active');
+  bodySelect($this);
 }
 
 goToStep3 = function(){
@@ -55,12 +57,17 @@ submitForm = function(){
     data: {mosaic: data},
     dataType: "JSON"
   }).success(function(response){
+    $mosaic_name = $('#mosaic_name')
+    $mosaic_show = $('#mosaic_show')
     $body.removeClass('loading');
-    var element = $('<div><h3>' + response.name + '</h3></div>' +
-      '<div id="mosaic_container">' +
+    var element = $('<div><h3>' + response.name + '</h3></div>');
+    element.appendTo($mosaic_name);
+
+    var element = $('<div id="mosaic_container">' +
         '<img alt="' + response.name + '" data-zoom-image="' + response.path + '" id="zoom_01" src="' + response.path_small + '" />' +
       '</div>');
-    element.appendTo('#mosaic_body_show_mosaic');
+    element.appendTo($mosaic_show);
+
     $mosaic_body_show_mosaic = $('#mosaic_body_show_mosaic');
     $mosaic_tab_show_mosaic = $('#mosaic_tab_show_mosaic');
     $mosaic_tab_show_mosaic.addClass('active');
@@ -75,9 +82,14 @@ submitForm = function(){
       zoomWindowFadeOut: 500,
       lensFadeIn: 500,
       lensFadeOut: 500,
+      zoomWindowOffetx: 20,
+      // zoomWindowPosition: "mosaic_zoom",
+      zoomWindowHeight: 300,
+      zoomWindowWidth:300,
+      // borderSize: 0,
+      easing:true
       // scrollZoom : true
     });
-
   });
 }
 

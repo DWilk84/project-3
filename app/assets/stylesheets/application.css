@@ -17,6 +17,10 @@
   box-sizing: border-box
 }
 
+a {
+  text-decoration: none;
+}
+
 .cf:before,
 .cf:after {
     content: " "; /* 1 */
@@ -43,7 +47,8 @@
 .details {
   width: 90%;
   margin: 20px auto;
-  border: 1px solid black;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
 }
 
 .details .instructions {
@@ -57,6 +62,12 @@
   padding: 10px;
   float: left;
   text-align: center;
+}
+
+#footer {
+  height: 100px;
+  margin-top: 20px;
+  border-top: 1px solid #dddddd;
 }
 
 /* adding a loading image to the display when the mosaic is being processed*/

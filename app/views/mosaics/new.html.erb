@@ -9,11 +9,14 @@
     <%= form_for(@mosaic) do |f| %>
       <%= render "shared/errors", target: @mosaic %>
       <div id="mosaic_body_pick_tiles"class="body_tab active">
-        <h3>Select images for background tiles:</h3>
-        <p>Choose individual pictures by clicking the images below, or... </p>
-        <p id="add_all">add all</p>
-        <p id="remove_all">remove all</p>
-        <p id="go_to_step_2">next</p>
+        <div class="instructions">
+          <h3>Select images for background tiles:</h3>
+          <p>Choose individual pictures by clicking the images below, or... </p>
+          <p id="add_all" class="sudo_link">add all</p>
+          <p id="remove_all" class="sudo_link">remove all</p>
+          <p id="go_to_step_2" class="sudo_link">next</p>
+          
+        </div>
         
         <div id="tiles">
           <%= select_tag("mosaic[image_ids][]", options_for_select(current_user.images.all.collect{ |img| [img.name, img.id, {"data-img-src" => img.file.url}] }), multiple: true) %>
@@ -38,7 +41,11 @@
           </div>
         </div>
       </div>
-      <div id="mosaic_body_show_mosaic"class="body_tab "></div>
+      <div id="mosaic_body_show_mosaic"class="body_tab ">
+        <div id="mosaic_name"></div>
+        <div id="mosaic_show"></div>
+        <div id="mosaic_zoom"></div>
+      </div>
     <% end %>
   </div>
 </div>
