@@ -1,5 +1,44 @@
-<h1>New mosaic</h1>
+<div id="mosaics_container">
+  <div id="mosaic_tabs">
+    <div id="mosaic_tab_pick_tiles" class="tab_selector active">Choose background images</div>
+    <div id="mosaic_tab_pick_target" class="tab_selector">Choose main image</div>
+    <div id="mosaic_tab_show_mosaic" class="tab_selector">Your Pixelpic</div>
+  </div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', mosaics_path %>
+  <div id="mosaic_bodies">
+    <%= form_for(@mosaic) do |f| %>
+      <%= render "shared/errors", target: @mosaic %>
+      <div id="mosaic_body_pick_tiles"class="body_tab active">
+        <h3>Select images for background tiles:</h3>
+        <p>Choose individual pictures by clicking the images below, or... </p>
+        <p id="add_all">add all</p>
+        <p id="remove_all">remove all</p>
+        <p id="go_to_step_2">next</p>
+        
+        <div id="tiles">
+          <%= select_tag("mosaic[image_ids][]", options_for_select(current_user.images.all.collect{ |img| [img.name, img.id, {"data-img-src" => img.file.url}] }), multiple: true) %>
+        </div>
+      </div>
+      <div id="mosaic_body_pick_target" class="body_tab">
+        <div>
+          <%= f.label :name %><br />
+          <%= f.text_field :name, placeholder: "e.g. My Mosaic", required: true %>
+        </div>
+        <div class="actions">
+          <p id="go_to_step_3">Make my Pixelpic!</p>
+          <div id="submit_button">
+            <%= f.submit %>
+          </div>
+          
+        </div>
+        <div class="field">
+          <h3>Select your main image:</h3>
+          <div id="target">
+            <%= select_tag("mosaic[image_ids][]", options_for_select(current_user.images.all.collect{ |img| [img.name, img.id, {"data-img-src" => img.file.url}] })) %>
+          </div>
+        </div>
+      </div>
+      <div id="mosaic_body_show_mosaic"class="body_tab "></div>
+    <% end %>
+  </div>
+</div>

@@ -26,7 +26,6 @@ toggleActiveForm = function(){
 };
 
 getFacebookImages = function(){
-
   var $body = $('body');
   $body.addClass('loading');
 
@@ -53,9 +52,8 @@ getFacebookImages = function(){
         element.appendTo($fb_albums)
       });
     });
-  });
-  // debugger
   $body.removeClass('loading');
+  });
 };
 
 removeSpaces = function(string){
@@ -69,7 +67,6 @@ toggleAlbumShow = function(){
 }
 
 addToFacebookImages = function(image_url){
-  // add to images db, then append to uploaded images div
   var element = $('<div class="uploaded_image">' +
     '<img alt="" src="' + image_url + '" />' +
     '</div>')
