@@ -23,11 +23,11 @@
         </div>
       </div>
       <div id="mosaic_body_pick_target" class="body_tab">
-        <div>
-          <%= f.label :name %><br />
+        <div id="name_input">
+          <%= f.label :name %>
           <%= f.text_field :name, placeholder: "e.g. My Mosaic", required: true %>
         </div>
-        <div class="actions">
+        <div class="actions" id="make_mosaic_button">
           <p id="go_to_step_3">Make my Pixelpic!</p>
           <div id="submit_button">
             <%= f.submit %>
