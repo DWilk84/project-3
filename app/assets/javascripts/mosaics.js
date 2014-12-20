@@ -101,4 +101,21 @@ $(function(){
   $('#go_to_step_2').on('click', goToStep2);
   $('#go_to_step_3').on('click', goToStep3);
   $('#new_mosaic').on('submit', submitForm);
+
+  $('#zoom_01').elevateZoom({
+    tint:true,
+    tintColour:'#000',
+    tintOpacity:0.3,
+    zoomWindowFadeIn: 500,
+    zoomWindowFadeOut: 500,
+    lensFadeIn: 500,
+    lensFadeOut: 500,
+    zoomWindowOffetx: 20,
+    // zoomWindowPosition: "mosaic_zoom",
+    zoomWindowHeight: 300,
+    zoomWindowWidth:300,
+    // borderSize: 0,
+    easing:true
+    // scrollZoom : true
+    });
 });
