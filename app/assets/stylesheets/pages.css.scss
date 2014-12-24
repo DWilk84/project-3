@@ -1,3 +1,105 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#content {
+  h1 {
+    padding: 10px;
+    height: 60px;
+    line-height: 40px;
+    font-size: 40px;
+  }
+  h2 {
+    padding: 10px;
+    height: 50px;
+    line-height: 30px;
+    font-size: 30px;
+  }
+  h3 {
+    padding: 10px;
+    height: 40px;
+    line-height: 20px;
+    font-size: 20px;
+  }
+  h4 {
+    padding: 10px;
+    height: 30px;
+    line-height: 15px;
+    font-size: 15px;
+  }
+
+  .section_container {
+    padding: 10px;
+    min-height: 500px;
+
+    .section_inner_container {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }      
+  #section_1 {
+    background-color: #E2F9FB;
+
+    ul {
+      width: 40%;
+      float: left;
+      padding: 10px;
+      margin-top: 10px;
+      li {
+        line-height: 30px;
+      }
+    }
+    #example_image_container {
+      width: 60%;
+      float: left;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #B0E7E9;
+      border-radius: 5px;
+      background-color: #B0E7E9;
+      height: 300px;
+      text-align: center;
+
+      img {
+        max-width: 100%;
+        max-height: 300px;
+      }
+    }
+  }
+  #section_2 {
+    background-color: #CAF2F3;
+    .how_to {
+      height: 300px;
+      width: 31.3%;
+      background-color: #96DADD;
+      border: 1px solid #96DADD;
+      border-radius: 5px;
+      float: left;
+      padding: 10px;
+      margin: 1%;
+      text-align: center;
+
+      img {
+        height: 200px;
+        width: 200px;
+        margin-top: 10px;
+        background-color: #CAF2F3;
+      }
+    }
+  }
+  #section_3 {
+    background-color: #B0E7E9;
+  }
+  #section_4 {
+    background-color: #96DADD;
+  }
+  #section_5 {
+    background-color: #7CC9CD;
+  }
+  #section_6 {
+    background-color: #6CA2A4;
+  }
+
+
+}
+

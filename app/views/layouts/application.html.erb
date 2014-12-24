@@ -7,13 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="container">
+  <div id="nav_menus">
     <%= render 'shared/user_nav' %>
     <%= render 'shared/site_nav' %>
     <%= render 'shared/flash_messages' %>
+  </div>
+  <div id="container">
     <%= yield %>
   </div>
-  <footer id="footer"></footer>
+  <footer id="footer">
+    <p>LEGAL STUFF</p>
+    <p>Copyright dwlknsn</p>
+    <p>Site design by dwlknsn</p>
+
+  </footer>
   <div class="modal"></div>
 </body>
 </html>
