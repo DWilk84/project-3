@@ -8,7 +8,7 @@ $(function(){
   $nav_links.on("click", function(event){
     event.preventDefault();
     $.scrollTo(
-      $(this).attr("href"),
+      $(this).attr("data-scroll-link"),
       {
         duration: 500,
         offset: {
