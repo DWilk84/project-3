@@ -3,19 +3,19 @@
 // # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(function(){
-  var $nav_links = $(".scroll_link");
+  // var $nav_links = $(".scroll_link");
 
-  $nav_links.on("click", function(event){
-    event.preventDefault();
-    $.scrollTo(
-      $(this).attr("data-scroll-link"),
-      {
-        duration: 500,
-        offset: {
-          "left": 0,
-          "top": -75
-        }
-      }
-    );
-  });
+  // $nav_links.on("click", function(event){
+  //   event.preventDefault();
+  //   $.scrollTo(
+  //     $(this).attr("data-scroll-link"),
+  //     {
+  //       duration: 500,
+  //       offset: {
+  //         "left": 0,
+  //         "top": -75
+  //       }
+  //     }
+  //   );
+  // });
 });
