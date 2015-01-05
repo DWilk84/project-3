@@ -1,4 +1,4 @@
-ul.thumbnails.image_picker_selector {
+/*ul.thumbnails.image_picker_selector {
   overflow: auto;
   list-style-image: none;
   list-style-position: outside;
@@ -27,3 +27,4 @@ ul.thumbnails.image_picker_selector {
         -webkit-user-drag: none; }
     ul.thumbnails.image_picker_selector li .thumbnail.selected {
       background: #0088cc; }
+*/

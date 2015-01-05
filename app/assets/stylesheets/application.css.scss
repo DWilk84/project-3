@@ -1,144 +1,206 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+
+*= require bootstrap.css
+*= require_self
+*= require_tree .
+*/
+  
 
 
- * { 
-  box-sizing: border-box
-}
 
 body {
-  background-color: #96DADD;
-}
+  background-color: #f9ccbc;
+  // background-image: url("background.jpg");
+  // background-attachment: fixed;
 
-a {
-  text-decoration: none;
-  color: #000;
-  &:visited {
-    color: #666;
+  .navbar {
+    height: 50px;
+
+    #nav_logo {
+      width: 200px;
+      position: relative;
+      top: 20px;
+      border: 1px solid #bf3e11;
+      border-radius: 10px;
+    }
+
   }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
 
-.cf:before,
-.cf:after {
-  content: " "; /* 1 */
-  display: table; /* 2 */
-}
-.cf:after {
-  clear: both;
-}
+  #content-container {
+    padding-top: 100px;
+    
+    h1, h2, h3, h4 {
+      // color: #dd4814;
+    }
 
-#nav_menus {
-  position: fixed;
-  margin-top: -75px;
-  height: 75px;
-  width: 100%;
-  border-bottom: 1px solid #6CA2A4;
-  background-color: #B0E7E9;
+    #hero-banner {
+      img{
+        width: 100%;
+      }
+    }
 
-  #nav {
-    /*border-bottom: 1px solid #dddddd;*/
-    /*margin-bottom: 10px;*/
-    padding-top: 10px;
-    padding-bottom: 10px;
+    #how-it-works {
 
-    ul {
-      text-align: center;
+    }
 
-      li {
-        display: inline-block;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background-color: #FFF1D3;
-        border-radius: 2px;
+    #gallery {
 
-        &:hover {
-          display: inline-block;
-          background-color: #FFDE9A;
-        }
+    }
 
-        a {
-          color: #FFDE9A;
-          padding: 10px;
-          &:visited {
-            color: #666;
+    #contact-us {
+
+    }
+
+    #add_images {
+      #new_image {
+        #btn-pc {
+          padding: 0;
+          width: 200px;
+
+          label {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            font-size: 25px;
           }
-          &:hover {
-            background-color: #FFDE9A;
+
+          #image_file {
+            visibility: hidden;
+            height: 0;
+            width: 0;
           }
         }
       }
+      #fb-btn {
+        padding: 0;
+        font-size: 25px;
+        width: 200px;
+      }
+    }
+
+    #uploaded_images {
+
+      #uploaded_images_inner {
+        max-height: 500px;
+        overflow: scroll;
+
+        .uploaded_image_container {
+          float: left;
+          height: 100px;
+          width: 100px;
+          text-align: center;
+          background: white;
+          border: 5px solid white;
+
+          .uploaded_image {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+        .image_selected {
+          border: 5px solid blue;
+        }
+      }
+    }
+
+    #fb-modal {
+      .modal-header {}
+      .modal-body {
+        #fb_album_select {
+        }
+        #fb_albums {
+          max-height: 500px;
+          overflow: scroll;
+
+          .fb_image_container {
+            float: left;
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            background: grey;
+            border: 5px solid white;
+            display: none;
+
+            .fb_image {
+              max-width: 100%;
+              max-height: 100%;
+            }
+          }
+          .album_active {
+            display: block;
+          }
+          .image_selected {
+            border: 5px solid blue;
+          }
+        }
+      }
+      modal-footer {}
     }
   }
-}
 
-#container {
-  margin-top: 75px;
-}
-
-.details {
-  width: 90%;
-  margin: 20px auto;
-  border: 1px solid #dddddd;
-  border-radius: 10px;
-
-  .instructions {
-    width: 70%;
-    padding: 10px;
-    float: left;
+  footer {
+    background-color: #dd4814;
+    color: #eeeeee;
+    .row {
+      padding: 10px;
+    }
+    .btn {
+      margin: 10px;
+    }
   }
-  .next {
-    width: 30%;
-    padding: 10px;
-    float: left;
-    text-align: center;
-  }
+
 }
 
 
-#footer {
-  height: 100px;
-  margin-top: 20px;
-  border-top: 1px solid #dddddd;
+
+
+.carousel-indicators li {
+  background-color: #669966;
+}
+.carousel-indicators .active {
+  background-color: #FF7600;
+}
+.carousel-caption {
+  margin-bottom: -50px;
+}
+.carousel-caption h3{
+  background-color: #dd4814;
+  color: white;
 }
 
-/* adding a loading image to the display when the mosaic is being processed*/
-.modal {
-  display:    none;
-  position:   fixed;
-  z-index:    1000;
-  top:        0;
-  left:       0;
-  height:     100%;
-  width:      100%;
-  background: rgba( 255, 255, 255, .8 ) 
-  url('https://s3-eu-west-1.amazonaws.com/pixelpic/ajax-loader.gif') 
-  50% 50% 
-  no-repeat;
-}
 
-/* When the body has the loading class, we turn
-the scrollbar off with overflow:hidden */
-body.loading {
-  overflow: hidden;   
-}
+// /* adding a loading image to the display when the mosaic is being processed*/
+// .modal {
+//   display:    none;
+//   position:   fixed;
+//   z-index:    1000;
+//   top:        0;
+//   left:       0;
+//   height:     100%;
+//   width:      100%;
+//   background: rgba( 255, 255, 255, .8 ) 
+//   url('https://s3-eu-west-1.amazonaws.com/pixelpic/ajax-loader.gif') 
+//   50% 50% 
+//   no-repeat;
+// }
 
-/* Anytime the body has the loading class, our
-modal element will be visible */
-body.loading .modal {
-  display: block;
-}
+// /* When the body has the loading class, we turn
+// the scrollbar off with overflow:hidden */
+// body.loading {
+//   overflow: hidden;   
+// }
+
+// /* Anytime the body has the loading class, our
+// modal element will be visible */
+// body.loading .modal {
+//   display: block;
+// }

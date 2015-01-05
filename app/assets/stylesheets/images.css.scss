@@ -1,161 +1,161 @@
-// Place all the styles related to the Images controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // Place all the styles related to the Images controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
 
-.bar {
-    height: 18px;
-    background: green;
-}
+// .bar {
+//     height: 18px;
+//     background: green;
+// }
 
-.details {
-  height: 100px;
+// .details {
+//   height: 100px;
 
-  .instructions {
-    height: 100px;
+//   .instructions {
+//     height: 100px;
 
-    p {
-      height: 40px;
-      line-height: 40px;
-    }
-  }
-  .next {
-    a {
-      line-height: 80px;
-      font-size: 30px;
-      text-decoration: none;
-      padding: 5px 20px 5px 20px;
-    }
-  }
-}
+//     p {
+//       height: 40px;
+//       line-height: 40px;
+//     }
+//   }
+//   .next {
+//     a {
+//       line-height: 80px;
+//       font-size: 30px;
+//       text-decoration: none;
+//       padding: 5px 20px 5px 20px;
+//     }
+//   }
+// }
 
-#image_uploads_container {
-  width: 90%;
-  margin: 0 auto;
-  height: 500px;
+// #image_uploads_container {
+//   width: 90%;
+//   margin: 0 auto;
+//   height: 500px;
 
 
-  #upload_area, #uploaded_images_outer {
-    width: 50%;
-    height: inherit;
-    display: inline-block;
-    float: left;
-  }
+//   #upload_area, #uploaded_images_outer {
+//     width: 50%;
+//     height: inherit;
+//     display: inline-block;
+//     float: left;
+//   }
   
-  #upload_area {
+//   #upload_area {
 
-    #upload_type_selector {
+//     #upload_type_selector {
       
-      div {
-        padding: 10px;
-        text-align: center;
-        display: inline-block;
-        width: 50%;
-        float: left;
+//       div {
+//         padding: 10px;
+//         text-align: center;
+//         display: inline-block;
+//         width: 50%;
+//         float: left;
 
-        a {
-          padding: 10px;
-        }
-      }
+//         a {
+//           padding: 10px;
+//         }
+//       }
 
-      .active, .inactive {
-        border-top: 1px solid #dddddd;
-        border-right: 1px solid #dddddd;
-        border-left: 1px solid #dddddd;
-        border-bottom: 1px solid white;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
-        background-color: white;
+//       .active, .inactive {
+//         border-top: 1px solid #dddddd;
+//         border-right: 1px solid #dddddd;
+//         border-left: 1px solid #dddddd;
+//         border-bottom: 1px solid white;
+//         border-top-right-radius: 10px;
+//         border-top-left-radius: 10px;
+//         background-color: white;
         
-      }
-      .inactive {
-        background-color: #eeeeee;
-        border-bottom: 1px solid #dddddd;
-      }
-    }
+//       }
+//       .inactive {
+//         background-color: #eeeeee;
+//         border-bottom: 1px solid #dddddd;
+//       }
+//     }
 
-    #upload_forms {
-      height: 460px;
-      background-color: white;
-      border-right: 1px solid #dddddd;
-      border-bottom: 1px solid #dddddd;
-      border-left: 1px solid #dddddd;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      padding: 10px;
+//     #upload_forms {
+//       height: 460px;
+//       background-color: white;
+//       border-right: 1px solid #dddddd;
+//       border-bottom: 1px solid #dddddd;
+//       border-left: 1px solid #dddddd;
+//       border-bottom-left-radius: 10px;
+//       border-bottom-right-radius: 10px;
+//       padding: 10px;
 
-      #upload_from_fb {
-        display: none;
-        height: 440px;
-        overflow: auto;
+//       #upload_from_fb {
+//         display: none;
+//         height: 440px;
+//         overflow: auto;
         
 
-        #fb_album_select{
-          display: block;
-        }
+//         #fb_album_select{
+//           display: block;
+//         }
         
-        .fb_image_container {
-          display: none;
-          width: 50px;
-          height: 50px;
-          text-align: center;
-          vertical-align: middle;
-          margin: 10px;
+//         .fb_image_container {
+//           display: none;
+//           width: 50px;
+//           height: 50px;
+//           text-align: center;
+//           vertical-align: middle;
+//           margin: 10px;
 
-          .fb_image {
-            display: block;
-            max-width: 50px;
-            max-height: 50px;
-            box-shadow: 0px 0px 10px 5px grey;
-          }
+//           .fb_image {
+//             display: block;
+//             max-width: 50px;
+//             max-height: 50px;
+//             box-shadow: 0px 0px 10px 5px grey;
+//           }
 
-          .selected {
-            box-shadow: 0px 0px 10px 5px blue;
-          }
-        }
-        .album_active {
-          display: inline-block;
-        }
-      }
-    }
-  }
-  #uploaded_images_outer {
-    text-align: center;
-    border: 1px solid #dddddd;
-    border-radius: 10px;
-    background-color: white;
+//           .selected {
+//             box-shadow: 0px 0px 10px 5px blue;
+//           }
+//         }
+//         .album_active {
+//           display: inline-block;
+//         }
+//       }
+//     }
+//   }
+//   #uploaded_images_outer {
+//     text-align: center;
+//     border: 1px solid #dddddd;
+//     border-radius: 10px;
+//     background-color: white;
 
 
-    h3 {
-      padding: 10px;
-    }
+//     h3 {
+//       padding: 10px;
+//     }
 
-    #uploaded_images_inner {
-      height: 450px;
-      overflow: auto;
-      margin: 0 auto;
-      text-align: center;
+//     #uploaded_images_inner {
+//       height: 450px;
+//       overflow: auto;
+//       margin: 0 auto;
+//       text-align: center;
 
-      .uploaded_image_container {
-        width: 50px;
-        height: 50px;
-        display: inline-block;
-        text-align: center;
-        vertical-align: middle;
-        margin: 10px;
+//       .uploaded_image_container {
+//         width: 50px;
+//         height: 50px;
+//         display: inline-block;
+//         text-align: center;
+//         vertical-align: middle;
+//         margin: 10px;
 
-        img {
-          max-width: 50px;
-          max-height: 50px;
-          box-shadow: 0px 0px 10px 5px grey;
-        }
-        .selected {
-          box-shadow: 0px 0px 10px 5px blue;
-        }
-      }
-    }
-  }
+//         img {
+//           max-width: 50px;
+//           max-height: 50px;
+//           box-shadow: 0px 0px 10px 5px grey;
+//         }
+//         .selected {
+//           box-shadow: 0px 0px 10px 5px blue;
+//         }
+//       }
+//     }
+//   }
   
-}
+// }
 

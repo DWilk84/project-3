@@ -1,205 +1,205 @@
-// Place all the styles related to the Mosaics controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // Place all the styles related to the Mosaics controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#mosaics_container {
-  width: 90%;
-  margin: 0 auto;
+// #mosaics_container {
+//   width: 90%;
+//   margin: 0 auto;
 
-  #mosaic_tabs {
-    height: 40px;
+//   #mosaic_tabs {
+//     height: 40px;
 
-    div {
-      width: 33.33%;
-      display: inline-block;
-      float: left;
-      height: inherit;
-      padding: 10px;
-      text-align: center;
-      border: 1px solid #dddddd;
-      border-top-right-radius: 10px;
-      border-top-left-radius: 10px;
-      background-color: #eeeeee;
-    }
+//     div {
+//       width: 33.33%;
+//       display: inline-block;
+//       float: left;
+//       height: inherit;
+//       padding: 10px;
+//       text-align: center;
+//       border: 1px solid #dddddd;
+//       border-top-right-radius: 10px;
+//       border-top-left-radius: 10px;
+//       background-color: #eeeeee;
+//     }
 
-    #mosaic_tab_pick_target {
+//     #mosaic_tab_pick_target {
 
-    }
-    #mosaic_tab_pick_tiles {
+//     }
+//     #mosaic_tab_pick_tiles {
 
-    }
-    #mosaic_tab_show_mosaic {
+//     }
+//     #mosaic_tab_show_mosaic {
 
-    }
+//     }
 
-    .active {
-      border-bottom: 1px solid #ffffff;
-      background-color: #ffffff;   
-    }
-  }
+//     .active {
+//       border-bottom: 1px solid #ffffff;
+//       background-color: #ffffff;   
+//     }
+//   }
 
-  #mosaic_bodies {
-    border-right: 1px solid #dddddd;
-    border-bottom: 1px solid #dddddd;
-    border-left: 1px solid #dddddd;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    height: 550px;
+//   #mosaic_bodies {
+//     border-right: 1px solid #dddddd;
+//     border-bottom: 1px solid #dddddd;
+//     border-left: 1px solid #dddddd;
+//     border-bottom-right-radius: 10px;
+//     border-bottom-left-radius: 10px;
+//     height: 550px;
     
-    #mosaic_body_pick_tiles {
-      display: block;
-      height: inherit;
+//     #mosaic_body_pick_tiles {
+//       display: block;
+//       height: inherit;
 
-      #go_to_step_2 {}
+//       #go_to_step_2 {}
 
-      #tiles {
-        border-radius: 10px;
-        height: 450px;
-        overflow: auto;
-      }
+//       #tiles {
+//         border-radius: 10px;
+//         height: 450px;
+//         overflow: auto;
+//       }
 
-    }
-    #mosaic_body_pick_target {
-      display: none;
-      height: inherit;
-      overflow: auto;
+//     }
+//     #mosaic_body_pick_target {
+//       display: none;
+//       height: inherit;
+//       overflow: auto;
 
-      #name_input {
-        width: 50%;
-        height: 60px;
-        float: left;
-        display: inline-block;
-        text-align: right;
-        padding: 10px;
-        margin: 0;
-        line-height: 60px;
-      }
+//       #name_input {
+//         width: 50%;
+//         height: 60px;
+//         float: left;
+//         display: inline-block;
+//         text-align: right;
+//         padding: 10px;
+//         margin: 0;
+//         line-height: 60px;
+//       }
 
-      #make_mosaic_button {
-        width: 50%;
-        height: 60px;
-        float: left;
-        display: inline-block;
-        text-align: right;
-        padding: 10px;
-        margin: 0;
+//       #make_mosaic_button {
+//         width: 50%;
+//         height: 60px;
+//         float: left;
+//         display: inline-block;
+//         text-align: right;
+//         padding: 10px;
+//         margin: 0;
 
-        #go_to_step_3 {
-          text-align: center;
-          width: 50%;
-          float: left;
-          display: inline-block;
-          line-height: 60px;
-        }
+//         #go_to_step_3 {
+//           text-align: center;
+//           width: 50%;
+//           float: left;
+//           display: inline-block;
+//           line-height: 60px;
+//         }
 
-        #submit_button {
-          text-align: center;
-          width: 50%;
-          float: left;
-          display: inline-block;
-          line-height: 60px;
-        }
-      }
+//         #submit_button {
+//           text-align: center;
+//           width: 50%;
+//           float: left;
+//           display: inline-block;
+//           line-height: 60px;
+//         }
+//       }
       
 
-      #target {
-        border-radius: 10px;
-        height: 450px;
-        overflow: auto;
-      }
+//       #target {
+//         border-radius: 10px;
+//         height: 450px;
+//         overflow: auto;
+//       }
 
       
-      input[type=submit] {
-        // visibility: hidden;
+//       input[type=submit] {
+//         // visibility: hidden;
 
-      }
-    }
-    #mosaic_body_show_mosaic {
-      display: none;
+//       }
+//     }
+//     #mosaic_body_show_mosaic {
+//       display: none;
 
-      #mosaic_name {
-        height: 100px;
-        padding: 10px;
-      }
-      #mosaic_show {}
+//       #mosaic_name {
+//         height: 100px;
+//         padding: 10px;
+//       }
+//       #mosaic_show {}
 
-    }
+//     }
 
-    .active {
-      display: block;
-    }
-  }
-}
+//     .active {
+//       display: block;
+//     }
+//   }
+// }
 
-#mosaic_container {
-  width: 600px;
-  height: 600px;
+// #mosaic_container {
+//   width: 600px;
+//   height: 600px;
 
-  img {
-    max-width: 600px;
-    max-height: 600px;
-  }
-}
+//   img {
+//     max-width: 600px;
+//     max-height: 600px;
+//   }
+// }
 
-.instructions {
-  padding: 10px;
-  height: 100px;
+// .instructions {
+//   padding: 10px;
+//   height: 100px;
 
-  .sudo_link {
-    height: 40px;
-    line-height: 40px;
-    display: inline-block;
-    width: 33.3%;
-    float: left;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 20px;
-  }
-  .sudo_link:hover {
-    color: white;
-    background-color: black;
-  }
-}
-.next {
-    line-height: 80px;
-    font-size: 30px;
-    text-decoration: none;
-    padding: 5px 20px 5px 20px;
-}
-#new_mosaic {
-  width: 90%;
-  margin: 0 auto;
+//   .sudo_link {
+//     height: 40px;
+//     line-height: 40px;
+//     display: inline-block;
+//     width: 33.3%;
+//     float: left;
+//     text-align: center;
+//     margin-top: 10px;
+//     font-size: 20px;
+//   }
+//   .sudo_link:hover {
+//     color: white;
+//     background-color: black;
+//   }
+// }
+// .next {
+//     line-height: 80px;
+//     font-size: 30px;
+//     text-decoration: none;
+//     padding: 5px 20px 5px 20px;
+// }
+// #new_mosaic {
+//   width: 90%;
+//   margin: 0 auto;
 
-  #tiles, #target {
+//   #tiles, #target {
 
-    border: 1px solid #dddddd;
+//     border: 1px solid #dddddd;
 
-    .thumbnails{
-      text-align: center;
+//     .thumbnails{
+//       text-align: center;
 
-      li {
-        margin: 1%;
-        width: 18%;
-        height: 100px;
-        float: left;
+//       li {
+//         margin: 1%;
+//         width: 18%;
+//         height: 100px;
+//         float: left;
 
-        .thumbnail {
-          max-width: 100%;
-          height: 100%;
-          text-align: center;
-          vertical-align: middle;
-          // margin: 10px;
-          text-align: center;
+//         .thumbnail {
+//           max-width: 100%;
+//           height: 100%;
+//           text-align: center;
+//           vertical-align: middle;
+//           // margin: 10px;
+//           text-align: center;
 
-          .image_picker_image {
-            max-width: 100%;
-            max-height: 100%;
-            display: block;
-            margin: 0 auto;
-            max-height: 86px;
-          }
-        }
-      }
-    }
-  }
-}
+//           .image_picker_image {
+//             max-width: 100%;
+//             max-height: 100%;
+//             display: block;
+//             margin: 0 auto;
+//             max-height: 86px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

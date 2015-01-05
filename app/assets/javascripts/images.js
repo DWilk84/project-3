@@ -2,32 +2,14 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-toggleActiveForm = function(){
-  var $this = $(this);
-  var sibling = $(this).siblings();
-  $this.toggleClass('active inactive');
-  sibling.toggleClass('active inactive');
-
-  if ($("#upload_selector_file").hasClass('active')) {
-    $('#upload_from_fb').slideUp(function(){
-      $('#upload_from_file').slideDown();
-    });
-  } else {
-    $('#upload_from_file').slideUp(function(){
-      $('#fb_album_select').css('display', 'block')
-      $('#upload_from_fb').slideDown();
-    });
-
-    if ($('#upload_selector_fb').hasClass('get_from_fb')) {
-      $this.removeClass('get_from_fb');
-      getFacebookImages();
-    };
-  };
-};
 
 getFacebookImages = function(){
+  console.log("clicked")
+  $this = $(this);
+  $this.removeClass("fb-btn-unclicked")
+
   var $body = $('body');
-  $body.addClass('loading');
+  // $body.addClass('loading');
 
   var $fb_album_select = $('#fb_album_select');
   var $fb_albums = $('#fb_albums');
@@ -37,7 +19,6 @@ getFacebookImages = function(){
     type: "GET",
     dataType: "JSON",
   }).success(function(data){
-
     $.each(data, function(k, album){
       var album_name = album.name;
       var album_value = removeSpaces(album.name);
@@ -52,6 +33,7 @@ getFacebookImages = function(){
         element.appendTo($fb_albums)
       });
     });
+    $fb_album_select.css("display", "block");
   $body.removeClass('loading');
   });
 };
@@ -66,33 +48,36 @@ toggleAlbumShow = function(){
   $('.' + id).closest('.fb_image_container').toggleClass('album_active');
 }
 
-addToFacebookImages = function(image_url){
-  var element = $('<div class="uploaded_image">' +
-    '<img alt="" src="' + image_url + '" />' +
+addToUploadedImages = function(data){
+  var id = data.id;
+  var url = data.file.url;
+  // debugger;
+  var element = $('<div class="uploaded_image_container" id="' + id + '">' +
+    '<img alt="" src="' + url + '" class="uploaded_image"/>' +
     '</div>')
   element.prependTo('#uploaded_images_inner');
-};
-
-addToUploadedImages = function(image_url){
-  var element = $('<div class="uploaded_image_container">' +
-    '<img alt="" src="' + image_url + '" />' +
-    '</div>')
-  element.prependTo('#uploaded_images_inner');
+  enableNext();
 };
 
 toggleImageSelect = function(){
   var $this = $(this);
-  $this.toggleClass('selected');
+  // debugger;
+  $this.toggleClass('image_selected');
 };
 
 addAlbumSelect = function(){
-  console.log('add album');
   id = $('#fb_album_select').val();
-  $('.' + id).addClass('selected');
+  $('.' + id).parent().addClass('image_selected');
+}
+
+removeAlbumSelect = function(){
+  id = $('#fb_album_select').val();
+  $('.' + id).parent().removeClass('image_selected');
 }
 
 uploadFBImages = function(){
-  var pics = $('.fb_image.selected');
+  var pics = $('.fb_image_container.image_selected > img');
+  // debugger;
   $.each(pics, function(k, v){
     var data = {
       remote_file_url: v.src,
@@ -103,24 +88,62 @@ uploadFBImages = function(){
       type: "POST",
       dataType: "JSON",
       data: {image: data}
-    }).success(addToUploadedImages(v.src));
+    }).success(function(result){
+      addToUploadedImages(result);
+      // v.src
+    });
   });
-  pics.removeClass('selected');
+  pics.parent().removeClass('image_selected');
 }
 
+enableNext = function(){
+  var num_images = $('#uploaded_images_inner img').length;
+  if (num_images > 0) {
+    $("#btn_step_2").removeClass("disabled");
+  };
+};
+
+deleteAll = function(){
+  var images = $('.uploaded_image_container');
+  deleteImages(images);
+};
+
+deleteSelected = function(){
+  var images = $('.uploaded_image_container.image_selected');
+  deleteImages(images);
+}
+
+deleteImages = function(images){
+  $.each(images, function(k, v){
+    $.ajax({
+      url: "/images/" + v.id,
+      type: "DELETE",
+      dataType: "JSON",
+    }).success(function(){
+      $('#' + v.id).remove();
+    });
+  });
+};
+
 $(function(){
-  $('#upload_selector_file').on('click', toggleActiveForm);
-  $('#upload_selector_fb').on('click', toggleActiveForm);
+
+  $('#fb-btn-container').on('click', '.fb-btn-unclicked', getFacebookImages);
+
   $('#fb_album_select').on('change', toggleAlbumShow);
-  $('#upload_from_fb').on('click', '.fb_image', toggleImageSelect);
-  $('#upload_from_fb').on('click', '#add_album', addAlbumSelect);
-  $('#upload_from_fb').on('click', '#upload_fb_images', uploadFBImages);
+
+  $('#fb-modal').on('click', '.fb_image_container', toggleImageSelect);
+  $('#fb-modal').on('click', '#select_all', addAlbumSelect);
+  $('#fb-modal').on('click', '#deselect_all', removeAlbumSelect);
+  $('#fb-modal').on('click', '#add_to_images', uploadFBImages);
+  $('#uploaded_images').on('click', '.uploaded_image_container', toggleImageSelect );
+  $('#delete_all_images').on('click', deleteAll);
+  $('#delete_selected_images').on('click', deleteSelected);
 
   // multi file upload
   $('#new_image').fileupload({
     dataType: "JSON",
     done: function (e, data) {
-      addToUploadedImages(data.result.file.url);
+      addToUploadedImages(data.result);
     },
     progress: function (e, data) {
       var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -130,4 +153,6 @@ $(function(){
       );
     }
   });
+
+  enableNext();
 });

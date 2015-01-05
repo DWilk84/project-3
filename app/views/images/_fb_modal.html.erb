@@ -1,0 +1,43 @@
+<div class="modal fade" id="fb-modal" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Add your facebook images</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-8">
+            <ol>
+              <li>Select a photo album from the dropdown select</li>
+              <li>Select individual images by clicking them</li>
+              <li>or use the buttons on the right to select/deselect all</li>
+            </ol>
+          </div>
+          <div class="col-sm-4">
+            <p class="btn btn-primary" id="select_all">Select all</p>
+            <p class="btn btn-default" id="deselect_all">Deselect all</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="select" class="col-lg-6 control-label">Select a photo album</label>
+              <div class="col-lg-6">
+                <select class="form-control" id="fb_album_select">
+                  <option>---</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div id="fb_albums"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <h4>When you're ready to upload the images, click here <p class="btn btn-default" id="add_to_images">Upload images</p></h4>
+      </div>
+    </div>
+  </div>
+</div>

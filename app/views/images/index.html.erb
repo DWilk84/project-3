@@ -1,47 +1,40 @@
-<div class="details cf">
-  <div class="instructions">
-    <p>Add images using the forms below on the left</p>
-    <p>You can see the images you've uploaded on the right</p>
-  </div>
-  <div class="next">
-    <%= link_to 'Next', new_mosaic_path %>
-  </div>  
-</div>
-
-
-<div id="image_uploads_container" class="cf">
-  <div id="upload_area">
-    <div id="upload_type_selector" class="cf">
-      <div id="upload_selector_file" class="upload_selector active">
-        <p>upload from file</p>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default" id="add_images">
+      <div class="panel-heading">
+        <h3>Step 1: Add some images</h3>
+        <h4><em class="text-muted"> - as images are added, they'll appear in the <strong class="text-primary">PREVIEW PANEL</strong> below for you to review</em></h4>
       </div>
-      <div id="upload_selector_fb" class="upload_selector get_from_fb inactive">
-        <p>upload from facebook</p>
+      <div class="panel-body">
+        <div class="col-md-6 text-center">
+          <h4>Click here to upload images from your computer</h4>
+          <%= render 'form', target_image: Image.new %>
+        </div>
+        <div class="col-md-6 text-center" id="fb-btn-container">
+          <h4>Click here to upload images from Facebook</h4>
+          <a href="#fb-modal" data-toggle="modal" class="btn btn-default fb-btn-unclicked" id="fb-btn">Facebook</a>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <h4>Once you have uploaded all of your images, click here to go to the next step <%= link_to 'Go To Step 2', new_mosaic_path, class: "btn btn-success disabled", id: "btn_step_2" %></h4>
       </div>
     </div>
-    <div id="upload_forms"> 
-      <!-- toggle show on active depending on selection above -->
-      <div id="upload_from_file">
-        <%= render 'form', target_image: Image.new %>
+    <div class="panel panel-default" id="uploaded_images">
+      <div class="panel-heading">
+        <h3>Preview Panel</h3>
+        <h4><em class="text-muted">Images will appear here once they are uploaded...</em></h4>
+        <p class="btn btn-default" id="delete_all_images">Delete All</p>
+        <p class="btn btn-default" id="delete_selected_images">Delete Selected</p>
       </div>
-      <div id="upload_from_fb">
-        <div id="album_selector">
-          <%= render 'facebook_images_uploader' %>
+      <div class="panel-body" id="uploaded_images_inner">
+        <% @images.each do |image| %>
+        <div class="uploaded_image_container" id="<%= image.id %>">
+          <%= image_tag(image.file.url, class: "uploaded_image" ) %>
         </div>
-        <div id="fb_albums">
-        </div>
+        <% end %>
       </div>
-    </div>
-  </div>
-  
-  <div id="uploaded_images_outer">
-    <h3>Uploaded images:</h3>
-    <div id="uploaded_images_inner">
-      <% @images.each do |image| %>
-        <div class="uploaded_image_container">
-          <%= image_tag(image.file.url) %>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
+
+<%= render 'fb_modal' %>

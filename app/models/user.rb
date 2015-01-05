@@ -70,9 +70,6 @@ class User < ActiveRecord::Base
       end  
       hash
     end
-    # binding.pry
-    # puts "debug"
-    # fb_albums
   end
 
 end

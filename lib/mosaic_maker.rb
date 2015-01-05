@@ -24,7 +24,11 @@ module MosaicMaker
     # collect and amend the target image
     puts "reading images"
 
-    target_image = Image.read(@mosaic.images.last.file.path)[0]
+    image_array = @mosaic.images
+    target_image = image_array.pop
+
+    # target_image = Image.read(@mosaic.images.last.file.path)[0]
+    target_image = Image.read(target_image.file.path)[0]
 
     width = target_image.columns.to_f
     height = target_image.rows.to_f
@@ -41,7 +45,7 @@ module MosaicMaker
 
     tile_list = ImageList.new()
     
-    @mosaic.images.each do |img|
+    image_array.each do |img|
       image = Image.read(img.file.path)[0]
       tile_list.push(image)
     end

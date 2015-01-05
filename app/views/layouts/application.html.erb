@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Pixelpic</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div id="nav_menus">
-    <%= render 'shared/user_nav' %>
-    <%= render 'shared/site_nav' %>
-    <%= render 'shared/flash_messages' %>
-  </div>
-  <div id="container">
-    <%= yield %>
-    <footer id="footer">
-      <p>LEGAL STUFF</p>
-      <p>Copyright dwlknsn</p>
-      <p>Site design by dwlknsn</p>
-    </footer>
-  </div>
-  <div class="modal"></div>
-</body>
+<html lang="en">
+  <head>
+    <title>Pixelpic</title>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Londrina+Sketch' rel='stylesheet' type='text/css'>
+  </head>
+  
+  <body>
+
+    <%= render 'shared/site_navbar' %>
+
+    <div class="container-fluid" id="content-container">
+      <div class="row">
+      <%= yield %>
+      </div>
+    </div>
+
+    <%= render 'shared/site_footer' %>
+    <%= render 'shared/email_modal' %>
+
+  </body>
 </html>
