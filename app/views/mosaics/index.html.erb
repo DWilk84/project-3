@@ -1,23 +1,35 @@
-<h1>Listing mosaics</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @mosaics.each do |mosaic| %>
-  <tr>
-    <td><%= mosaic.name %></td>
-    <td><%= link_to 'Show', mosaic %></td>
-    <td><%= link_to 'Edit', edit_mosaic_path(mosaic) %></td>
-    <td><%= link_to 'Destroy', mosaic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Mosaic', new_mosaic_path %>
+<div class="container" id="mosaics_index">
+  <div class="row">
+    <div class="panel panel-default" id="my_mosaics">
+      <div class="panel-heading">
+        <h2>My PixelPics</h2>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <% @mosaics.each do |mosaic| %>
+              <div class="panel panel-warning mosaic_container">
+                <div class="panel-body text-center">
+                  <div class="col-md-6">
+                    <%= link_to image_tag(mosaic.path_small), mosaic %>
+                    <%=  %>
+                  </div>
+                  <div class="col-md-6">
+                    <h3 class="text-primary"><%= mosaic.name %></h3>
+                    <h4 class="text-muted">Created: <%= mosaic.created_at %></h4>
+                      <%= link_to 'Show', mosaic, class: "btn btn-default" %>
+                      <%= link_to 'Edit', edit_mosaic_path(mosaic), class: "btn btn-default" %>
+                      <%= link_to 'Destroy', mosaic, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer text-right">
+        <%= link_to 'Create a new PixelPic', images_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

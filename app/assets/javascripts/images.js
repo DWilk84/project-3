@@ -90,7 +90,6 @@ uploadFBImages = function(){
       data: {image: data}
     }).success(function(result){
       addToUploadedImages(result);
-      // v.src
     });
   });
   pics.parent().removeClass('image_selected');

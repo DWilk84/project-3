@@ -13,7 +13,7 @@
 *= require_self
 *= require_tree .
 */
-  
+
 
 
 
@@ -41,110 +41,156 @@ body {
     h1, h2, h3, h4 {
       // color: #dd4814;
     }
-
-    #hero-banner {
-      img{
-        width: 100%;
+    
+    #pages_index {
+      #hero-banner {
+        img{
+          width: 100%;
+        }
       }
+
+      #how-it-works {
+
+      }
+
+      #gallery {
+        .carousel {
+          .carousel-indicators {
+            li {
+              background-color: #669966;
+              border: 1px solid black;
+            }
+            .active {
+              background-color: #FF7600;
+            }
+          }
+
+          .carousel-inner {
+            .carousel-caption {
+              margin-bottom: -55px;
+            }
+            .carousel-caption h3{
+              background-color: #dd4814;
+              color: white;
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+
+      #contact-us {
+
+      }
+
     }
 
-    #how-it-works {
+    #images_index {
+      #add_images {
+        #new_image {
+          #btn-pc {
+            padding: 0;
+            width: 200px;
 
-    }
+            label {
+              height: 100%;
+              width: 100%;
+              margin: 0;
+              font-size: 25px;
+            }
 
-    #gallery {
-
-    }
-
-    #contact-us {
-
-    }
-
-    #add_images {
-      #new_image {
-        #btn-pc {
+            #image_file {
+              visibility: hidden;
+              height: 0;
+              width: 0;
+            }
+          }
+        }
+        #fb-btn {
           padding: 0;
+          font-size: 25px;
           width: 200px;
-
-          label {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            font-size: 25px;
-          }
-
-          #image_file {
-            visibility: hidden;
-            height: 0;
-            width: 0;
-          }
         }
       }
-      #fb-btn {
-        padding: 0;
-        font-size: 25px;
-        width: 200px;
-      }
-    }
 
-    #uploaded_images {
+      #uploaded_images {
 
-      #uploaded_images_inner {
-        max-height: 500px;
-        overflow: scroll;
-
-        .uploaded_image_container {
-          float: left;
-          height: 100px;
-          width: 100px;
-          text-align: center;
-          background: white;
-          border: 5px solid white;
-
-          .uploaded_image {
-            max-width: 100%;
-            max-height: 100%;
-          }
-        }
-        .image_selected {
-          border: 5px solid blue;
-        }
-      }
-    }
-
-    #fb-modal {
-      .modal-header {}
-      .modal-body {
-        #fb_album_select {
-        }
-        #fb_albums {
+        #uploaded_images_inner {
           max-height: 500px;
           overflow: scroll;
 
-          .fb_image_container {
+          .uploaded_image_container {
             float: left;
             height: 100px;
             width: 100px;
             text-align: center;
-            background: grey;
+            background: white;
             border: 5px solid white;
-            display: none;
 
-            .fb_image {
+            .uploaded_image {
               max-width: 100%;
               max-height: 100%;
             }
-          }
-          .album_active {
-            display: block;
           }
           .image_selected {
             border: 5px solid blue;
           }
         }
       }
-      modal-footer {}
+
+      #fb-modal {
+        .modal-header {}
+        .modal-body {
+          #fb_album_select {
+          }
+          #fb_albums {
+            max-height: 500px;
+            overflow: scroll;
+
+            .fb_image_container {
+              float: left;
+              height: 100px;
+              width: 100px;
+              text-align: center;
+              background: grey;
+              border: 5px solid white;
+              display: none;
+
+              .fb_image {
+                max-width: 100%;
+                max-height: 100%;
+              }
+            }
+            .album_active {
+              display: block;
+            }
+            .image_selected {
+              border: 5px solid blue;
+            }
+          }
+        }
+        modal-footer {}
+      }
+
     }
+
+    #mosaics_index {
+      #my_mosaics {
+        .panel-heading {}
+        .panel-body {
+          max-height: 500px;
+          overflow: scroll;
+          
+          .mosaic_container {
+            img {
+              max-width: 200px;
+              border: 1px solid black;
+            }
+          }
+        }
+        .panel-heading {}
+      }
+    }
+
   }
 
   footer {
@@ -163,19 +209,7 @@ body {
 
 
 
-.carousel-indicators li {
-  background-color: #669966;
-}
-.carousel-indicators .active {
-  background-color: #FF7600;
-}
-.carousel-caption {
-  margin-bottom: -50px;
-}
-.carousel-caption h3{
-  background-color: #dd4814;
-  color: white;
-}
+
 
 
 // /* adding a loading image to the display when the mosaic is being processed*/
