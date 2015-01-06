@@ -2,7 +2,7 @@
   <div class="row">
     <div class="panel panel-default" id="add_images">
       <div class="panel-heading">
-        <h3>Step 1: Add some images</h3>
+        <h2>Step 1: Add some images</h2>
         <h4><em class="text-muted"> - as images are added, they'll appear in the <strong class="text-primary">PREVIEW PANEL</strong> below for you to review</em></h4>
       </div>
       <div class="panel-body">
@@ -15,14 +15,15 @@
           <a href="#fb-modal" data-toggle="modal" class="btn btn-default fb-btn-unclicked" id="fb-btn">Facebook</a>
         </div>
       </div>
-      <div class="modal-footer">
+      <div class="panel-footer text-right">
         <h4>Once you have uploaded all of your images, click here to go to the next step <%= link_to 'Go To Step 2', new_mosaic_path, class: "btn btn-success disabled", id: "btn_step_2" %></h4>
       </div>
     </div>
     <div class="panel panel-default" id="uploaded_images">
       <div class="panel-heading">
-        <h3>Preview Panel</h3>
+        <h2>Preview Panel</h2>
         <h4><em class="text-muted">Here you can review and delete any unwanted images before moving to step 2</em></h4>
+        <p class="text-primary">pro tip: <em>The background images are cropped to be square - ensure the main content of the image is in the center to ensure it is not cropped out...</em></p>
         <p class="text-muted">Click individual pictures to select them for deletion, or simply delete them all if you want to start again</p>
         <p class="btn btn-default" id="delete_all_images">Delete All</p>
         <p class="btn btn-default" id="delete_selected_images">Delete Selected</p>

@@ -7,8 +7,8 @@ module MosaicMaker
     #######################################
     # constants
     startTime = Time.now
-    max_width_large = 2000
-    max_width_small = 400
+    max_width_large = 3001
+    max_width_small = 401
     small_width_multiplier = max_width_small.to_f / max_width_large.to_f
     tile_width = 100
     tile_height = 100
@@ -89,7 +89,7 @@ module MosaicMaker
     # target image onto the background and then writing this to the AWS folder
     puts "writing output"
     
-    t_large = tiled_image.dissolve(target_image, "80%", 1.00)
+    t_large = tiled_image.dissolve(target_image, "70%", 1.00)
     t_large.write(path_large)
 
     width = (width * small_width_multiplier).to_i

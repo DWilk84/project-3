@@ -1,4 +1,42 @@
-<div id="mosaics_container">
+<div class="container" id="mosaics_new">
+  <div class="row">
+    <div class="panel panel-default" id="target_select">
+      <div class="panel-heading">
+        <h2>Step 2: Select your target image</h2>
+        <h4><em class="text-muted">this will be the large image that appears in the foreground of your PixelPic</em></h4>
+      </div>
+      <div class="panel-body" id="target_images_inner">
+        <p class="text-primary">pro tip: <em>The lighter the target image, the easier it is to see the background images...</em></p>
+        <% @images.each do |image| %>
+        <div class="target_image_container" id="<%= image.id %>">
+          <%= image_tag(image.file.url, class: "target_image" ) %>
+        </div>
+        <% end %>
+      </div>
+      <div class="panel-footer text-right">
+        <h4>Once you have selected your target image, click here to go to the next step <p class="btn btn-success" id="btn_step_3">Go To Step 3</p></h4>
+      </div>
+    </div>
+    <div class="panel panel-default" id="extra_details">
+      <div class="panel-heading">
+        <h2>Step 3: Extra Details</h2>
+        <h4><em class="text-muted">add a name and choose the size of your PixelPic</em></h4>
+      </div>
+      <div class="panel-body" id="extra_details_inner">
+        <div class="form-group">
+          <label class="control-label" for="name_input">Name your PixePic</label>
+          <input class="form-control" id="name_input" type="text" placeholder="eg My PixelPic">
+        </div>
+      </div>
+      <div class="panel-footer text-right">
+        <h4>Once you have completed the form, click here to create your PixelPic! <p class="btn btn-success" id="btn_create_pixelpic">Make my PixelPic!</p></h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div id="mosaics_container">
   <div id="mosaic_tabs">
     <div id="mosaic_tab_pick_tiles" class="tab_selector active">Choose background images</div>
     <div id="mosaic_tab_pick_target" class="tab_selector">Choose main image</div>
@@ -6,8 +44,8 @@
   </div>
 
   <div id="mosaic_bodies">
-    <%= form_for(@mosaic) do |f| %>
-      <%= render "shared/errors", target: @mosaic %>
+    <%#= form_for(@mosaic) do |f| %>
+      <%#= render "shared/errors", target: @mosaic %>
       <div id="mosaic_body_pick_tiles"class="body_tab active">
         <div class="instructions">
           <h3>Select images for background tiles:</h3>
@@ -19,25 +57,25 @@
         </div>
         
         <div id="tiles">
-          <%= select_tag("mosaic[image_ids][]", options_for_select(current_user.images.all.collect{ |img| [img.name, img.id, {"data-img-src" => img.file.url}] }), multiple: true) %>
+          <%#= select_tag("mosaic[image_ids][]", options_for_select(current_user.images.all.collect{ |img| [img.name, img.id, {"data-img-src" => img.file.url}] }), multiple: true) %>
         </div>
       </div>
       <div id="mosaic_body_pick_target" class="body_tab">
         <div id="name_input">
-          <%= f.label :name %>
-          <%= f.text_field :name, placeholder: "e.g. My Mosaic", required: true %>
+          <%#= f.label :name %>
+          <%#= f.text_field :name, placeholder: "e.g. My Mosaic", required: true %>
         </div>
         <div class="actions" id="make_mosaic_button">
           <p id="go_to_step_3">Make my Pixelpic!</p>
           <div id="submit_button">
-            <%= f.submit %>
+            <%#= f.submit %>
           </div>
           
         </div>
         <div class="field">
           <h3>Select your main image:</h3>
           <div id="target">
-            <%= select_tag("mosaic[image_ids][]", options_for_select(current_user.images.all.collect{ |img| [img.name, img.id, {"data-img-src" => img.file.url}] })) %>
+            <%#= select_tag("mosaic[image_ids][]", options_for_select(current_user.images.all.collect{ |img| [img.name, img.id, {"data-img-src" => img.file.url}] })) %>
           </div>
         </div>
       </div>
@@ -46,6 +84,6 @@
         <div id="mosaic_show"></div>
         <div id="mosaic_zoom"></div>
       </div>
-    <% end %>
+    <%# end %>
   </div>
-</div>
+</div> -->

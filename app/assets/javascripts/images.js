@@ -61,7 +61,6 @@ addToUploadedImages = function(data){
 
 toggleImageSelect = function(){
   var $this = $(this);
-  // debugger;
   $this.toggleClass('image_selected');
 };
 

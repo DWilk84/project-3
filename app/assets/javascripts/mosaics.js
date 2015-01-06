@@ -2,120 +2,54 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-selectAll = function(){
-  event.preventDefault();
-  $('#tiles').find('option').attr('selected', true);
-  $('#tiles').find('.thumbnail').addClass('selected');
-};
-
-removeAll = function(){
-  event.preventDefault();
-  $('#tiles').find('option').attr('selected', false);
-  $('#tiles').find('.thumbnail').removeClass('selected');
-}
-
-tabSelect = function(){
-  var $this = $(this);
-  $this.addClass('active');
-  $this.siblings().removeClass('active');
-  bodySelect($this);
-}
-
-bodySelect = function(element){
-  var id = element.attr('id').replace('tab', 'body');
-  var $this = $('#' + id)
-  $('.body_tab').fadeOut();
-  $this.fadeIn();
-}
-
-goToStep2 = function(){
-  $this = $('#mosaic_tab_pick_target')
-  $this.addClass('active');
-  $this.siblings().removeClass('active');
-  bodySelect($this);
+toggleTargetSelect = function(){
+  $this = $(this);
+  $('.target_image_container').removeClass('image_selected');
+  $this.addClass('image_selected');
 }
 
 goToStep3 = function(){
-  console.log('form submitted')
-  $('#new_mosaic').submit();
+  console.log('goToStep3 clicked');
 }
 
-submitForm = function(){
-  event.preventDefault();
-  var $body = $('body');
-  $body.addClass('loading');
-
-  var $this = $(this);
-  var data = {}
-  data['name'] = $('#mosaic_name').val();
-  var images = $('#tiles #mosaic_image_ids_').val();
-  images.push($('#target #mosaic_image_ids_').val());
-  data['image_ids'] = images
+createMosaic = function(){
+  var target = parseInt($('.image_selected').attr('id'));
+  var name = $('#name_input').val();
+  var pics = $('.target_image_container');
+  image_ids = []
+  $.each(pics, function(k, v){
+    image_ids.push(parseInt(v.id));
+  });
+  image_ids.push(target);
+  var data = {};
+  data['name'] = name
+  data['image_ids'] = image_ids
+  
   $.ajax({
     url: "/mosaics/",
     type: "POST",
     data: {mosaic: data},
     dataType: "JSON"
   }).success(function(response){
-    $mosaic_name = $('#mosaic_name')
-    $mosaic_show = $('#mosaic_show')
-    $body.removeClass('loading');
-    var element = $('<div><h3>' + response.name + '</h3></div>');
-    element.appendTo($mosaic_name);
+    console.log(response);
+    window.location.href = response.id.toString()
+  });
+};
 
-    var element = $('<div id="mosaic_container">' +
-        '<img alt="' + response.name + '" data-zoom-image="' + response.path + '" id="zoom_01" src="' + response.path_small + '" />' +
-      '</div>');
-    element.appendTo($mosaic_show);
-
-    $mosaic_body_show_mosaic = $('#mosaic_body_show_mosaic');
-    $mosaic_tab_show_mosaic = $('#mosaic_tab_show_mosaic');
-    $mosaic_tab_show_mosaic.addClass('active');
-    $mosaic_tab_show_mosaic.siblings().removeClass('active');
-    bodySelect($mosaic_body_show_mosaic);
-
+activateZoom = function(){
     $('#zoom_01').elevateZoom({
-      tint:true,
-      tintColour:'#000',
-      tintOpacity:0.3,
+      zoomType: 'inner',
+      cursor: 'crossair',
       zoomWindowFadeIn: 500,
       zoomWindowFadeOut: 500,
-      lensFadeIn: 500,
-      lensFadeOut: 500,
-      zoomWindowOffetx: 20,
-      // zoomWindowPosition: "mosaic_zoom",
-      zoomWindowHeight: 300,
-      zoomWindowWidth:300,
-      // borderSize: 0,
-      easing:true
-      // scrollZoom : true
+      easing: true,
     });
-  });
-}
+};
 
 $(function(){
-  $('select').imagepicker({});
-  $('#add_all').on('click', selectAll);
-  $('#remove_all').on('click', removeAll);
-  $('.tab_selector').on('click', tabSelect);
-  $('#go_to_step_2').on('click', goToStep2);
-  $('#go_to_step_3').on('click', goToStep3);
-  $('#new_mosaic').on('submit', submitForm);
+  $('.target_image_container').on('click', toggleTargetSelect);
+  $('#btn_step_3').on('click', goToStep3);
+  $('#btn_create_pixelpic').on('click', createMosaic);
 
-  $('#zoom_01').elevateZoom({
-    tint:true,
-    tintColour:'#000',
-    tintOpacity:0.3,
-    zoomWindowFadeIn: 500,
-    zoomWindowFadeOut: 500,
-    lensFadeIn: 500,
-    lensFadeOut: 500,
-    zoomWindowOffetx: 20,
-    // zoomWindowPosition: "mosaic_zoom",
-    zoomWindowHeight: 300,
-    zoomWindowWidth:300,
-    // borderSize: 0,
-    easing:true
-    // scrollZoom : true
-    });
+  activateZoom();
 });

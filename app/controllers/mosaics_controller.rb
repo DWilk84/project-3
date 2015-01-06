@@ -14,6 +14,7 @@ class MosaicsController < ApplicationController
   end
 
   def new
+    @images = current_user.images
     @mosaic = Mosaic.new
     respond_with(@mosaic)
   end
