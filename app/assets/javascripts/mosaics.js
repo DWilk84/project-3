@@ -44,6 +44,34 @@ activateZoom = function(){
       zoomWindowFadeOut: 500,
       easing: true,
     });
+    $('#zoom_02').elevateZoom({
+      zoomType: 'inner',
+      cursor: 'crossair',
+      zoomWindowFadeIn: 500,
+      zoomWindowFadeOut: 500,
+      easing: true,
+    });
+    $('#zoom_03').elevateZoom({
+      zoomType: 'inner',
+      cursor: 'crossair',
+      zoomWindowFadeIn: 500,
+      zoomWindowFadeOut: 500,
+      easing: true,
+    });
+    $('#zoom_04').elevateZoom({
+      zoomType: 'inner',
+      cursor: 'crossair',
+      zoomWindowFadeIn: 500,
+      zoomWindowFadeOut: 500,
+      easing: true,
+    });
+    $('#zoom_05').elevateZoom({
+      zoomType: 'inner',
+      cursor: 'crossair',
+      zoomWindowFadeIn: 500,
+      zoomWindowFadeOut: 500,
+      easing: true,
+    });
 };
 
 $(function(){

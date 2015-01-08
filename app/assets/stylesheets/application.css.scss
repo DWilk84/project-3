@@ -24,6 +24,7 @@ body {
 
   .navbar {
     height: 50px;
+    box-shadow: 0 1px 10px 0px black;
 
     #nav_logo {
       width: 200px;
@@ -31,6 +32,7 @@ body {
       top: 20px;
       border: 1px solid #bf3e11;
       border-radius: 10px;
+      box-shadow: 0 1px 5px 0px black;
     }
 
   }
@@ -39,9 +41,29 @@ body {
     padding-top: 100px;
     
     #pages_index {
+      #how-it-works:before, #gallery:before, #products:before, #contact-us:before { 
+        display: block; 
+        content: " "; 
+        margin-top: -70px; 
+        height: 70px; 
+        visibility: hidden; 
+      }
+
       #hero-banner {
         img{
           width: 100%;
+        }
+      }
+
+      #about {
+        #small_image {
+          padding: 20px;
+          max-height: 500px;
+          img {
+            max-width: 100%;
+            max-height: 400px;
+            border: 2px solid #dd4814;
+          }
         }
       }
 
@@ -62,13 +84,30 @@ body {
           }
 
           .carousel-inner {
-            .carousel-caption {
-              margin-bottom: -55px;
+            .item {
+              text-align: center;
+              height: 300px;
+              img {
+                margin: 0 auto;
+                max-width: 400px;
+                max-height: 300px;
+
+              }
+              .carousel-caption {
+                margin-bottom: -55px;
+              }
+              .carousel-caption h3{
+                background-color: #dd4814;
+                color: white;
+                border-radius: 5px;
+              }
             }
-            .carousel-caption h3{
-              background-color: #dd4814;
-              color: white;
-              border-radius: 5px;
+          }
+
+          .carousel-control {
+            .fa-chevron-left, .fa-chevron-right {
+              position: absolute;
+              top: 50%;
             }
           }
         }
@@ -77,7 +116,18 @@ body {
       #contact-us {
 
       }
+    }
 
+    #pages_examples {
+      .example_container {
+        padding: 20px;
+        max-height: 500px;
+        img {
+          max-width: 100%;
+          max-height: 400px;
+          border: 2px solid #dd4814;
+        }
+      }
     }
 
     #images_index {

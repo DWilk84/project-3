@@ -1,0 +1,36 @@
+<div class="container" id="pages_examples">
+  <div class="row">
+    <div class="panel panel-default" id="">
+      <div class="panel-heading text-center">
+        <h2 class="text-primary">Examples</h2>
+        <h3 class="text-muted"><em>Hover over an image to zoom in</em></h3>
+      </div>
+      <div class="panel-body" id="">
+        <div class="row">
+          <div class="col-sm-12 text-center example_container" id="example3">
+            <%= image_tag("https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example6_small.jpg", id: "zoom_02", data: {"zoom-image" => "https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example6_large.jpg"}) %>
+          </div>    
+        </div>
+        <div class="row">
+          <div class="col-sm-12 text-center example_container" id="example4">
+            <%= image_tag("https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example4_small.jpg", id: "zoom_03", data: {"zoom-image" => "https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example4_large.jpg"}) %>
+          </div>    
+        </div>
+        <div class="row">
+          <div class="col-sm-12 text-center example_container" id="example2">
+            <%= image_tag("https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example7_small.jpg", id: "zoom_04", data: {"zoom-image" => "https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example7_large.jpg"}) %>
+          </div>    
+        </div>
+        <div class="row">
+          <div class="col-sm-12 text-center example_container" id="example2">
+            <%= image_tag("https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example2_small.jpg", id: "zoom_05", data: {"zoom-image" => "https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example2_large.jpg"}) %>
+          </div>    
+        </div>    
+      </div>
+      <div class="panel-footer text-right">
+        <%= link_to 'Back to PixelPic home', root_url, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+

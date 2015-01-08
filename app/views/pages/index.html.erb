@@ -10,12 +10,10 @@
 
   <div class="row" id="about">
     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="text-primary text-center">Welcome to PixelPic!</h2>
+      </div>
       <div class="panel-body">
-        <div class="row">
-          <div class="col-sm-12">
-            <h2 class="text-primary">Welcome to PixelPic!</h2>
-          </div>
-        </div>
         <div class="row">
           <div class="col-md-4">
             <p>With PixelPic you can create a unique, personal artwork in just a few steps, using your own pictures...</p>
@@ -34,8 +32,8 @@
               <% end %>
             </div>
           </div>
-          <div class="col-md-8">
-            <img class="img-responsive center-block" src="http://placesheen.com/600/400" alt="img">
+          <div class="col-md-8 text-center" id="small_image">
+            <%= image_tag("https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example1_small.jpg", id: "zoom_01", data: {"zoom-image" => "https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example1_large.jpg"}) %>
           </div>
         </div>
       </div>
@@ -44,10 +42,12 @@
 
   <div class="row" id="how-it-works">
     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="text-primary text-center">How it works</h2>
+      </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-12">
-            <h2 class="text-primary">How it works</h2>
             <p>Create your PixelPic in just a few simple steps...</p>
           </div>
         </div>
@@ -79,6 +79,9 @@
 
   <div class="row" id="gallery">
     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="text-primary text-center">Gallery</h2>
+      </div>
       <div class="panel-body text-center">
         <div id="my-carousel" class="carousel slide" data-ride="carousel">
 
@@ -86,39 +89,49 @@
             <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
             <li data-target="#my-carousel" data-slide-to="1"></li>
             <li data-target="#my-carousel" data-slide-to="2"></li>
+            <li data-target="#my-carousel" data-slide-to="3"></li>
           </ol>
 
-          <div class="carousel-inner" role="listbox">
+          <div class="carousel-inner text-center" role="listbox">
             <div class="item active">
-              <img class="img-responsive center-block" src="http://placesheen.com/600/400" alt="img">
+              <%= image_tag("https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example6_small.jpg") %>
               <div class="carousel-caption">
-                <h3>Wedding Memories</h3>
+                <h3>new baby</h3>
               </div>
             </div>
             <div class="item">
-              <img class="img-responsive center-block" src="http://placesheen.com/600/400" alt="img">
+              <%= image_tag("https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example4_small.jpg") %>
               <div class="carousel-caption">
-                <h3>Happy Anniversary</h3>
+                <h3>wedding memories</h3>
               </div>
             </div>
             <div class="item">
-              <img class="img-responsive center-block" src="http://placesheen.com/600/400" alt="img">
+              <%= image_tag("https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example7_small.jpg") %>
               <div class="carousel-caption">
-                <h3>New baby</h3>
+                <h3>birthday celebrations</h3>
+              </div>
+            </div>
+            <div class="item">
+              <%= image_tag("https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example2_small.jpg") %>
+              <div class="carousel-caption">
+                <h3>sporting events</h3>
               </div>
             </div>
           </div>
 
           <a class="left carousel-control" href="#my-carousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <i class="fa fa-chevron-left"></i>
             <span class="sr-only">previous</span>
           </a>
 
           <a class="right carousel-control" href="#my-carousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <i class="fa fa-chevron-right"></i>
             <span class="sr-only">next</span>
           </a>
         </div>
+      </div>
+      <div class="panel-footer text-right">
+        <%= link_to 'View these zoomable examples...', examples_path, class: "btn btn-default" %>
       </div>
     </div>
   </div>
