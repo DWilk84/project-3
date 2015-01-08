@@ -10,8 +10,8 @@ module MosaicMaker
     max_width_large = 3001
     max_width_small = 401
     small_width_multiplier = max_width_small.to_f / max_width_large.to_f
-    tile_width = 300
-    tile_height = 300
+    tile_width = 100
+    tile_height = 100
     output_directory = "#{Rails.public_path}/uploads/mosaic"
     
     output_filename_large = "mosaic_#{@mosaic.id}_#{@mosaic.name}_large.jpg"
