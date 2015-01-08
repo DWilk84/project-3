@@ -23,11 +23,9 @@ module MosaicMaker
     #######################################
     # collect and amend the target image
     puts "reading images"
-
     image_array = @mosaic.images
     target_image = image_array.pop
-
-    # target_image = Image.read(@mosaic.images.last.file.path)[0]
+    image_array -= [target_image]
     target_image = Image.read(target_image.file.path)[0]
 
     width = target_image.columns.to_f
@@ -57,11 +55,11 @@ module MosaicMaker
     # 1) creating a blank background image to put the tiles on
     tiled_image = Image.new(width, height)
 
-    # 2) resizing and greyscaling the images in the file list,
+    # 2) resizing and greyscaling the images in the file list
     tiles = []
     tile_list.each do |tile|
-      # tile = tile.resize_to_fill(tile_width, tile_height, NorthGravity).quantize(256, GRAYColorspace)
-      tile = tile.resize_to_fill(tile_width, tile_height, NorthGravity)
+      tile = tile.resize_to_fill(tile_width, tile_height, NorthGravity).quantize(256, GRAYColorspace)
+      # tile = tile.resize_to_fill(tile_width, tile_height, NorthGravity)
       tiles.push(tile)
     end
 
@@ -90,7 +88,7 @@ module MosaicMaker
     # target image onto the background and then writing this to the AWS folder
     puts "writing output"
     
-    t_large = tiled_image.dissolve(target_image, "0%", 1.00)
+    t_large = tiled_image.dissolve(target_image, "70%", 1.00)
     t_large.write(path_large)
 
     width = (width * small_width_multiplier).to_i
@@ -113,8 +111,7 @@ module MosaicMaker
     # end
     
     #######################################
-    # return the path for the mosaic file that has been created
-    # S3 gem can be used to write the file to AWS S3
+    # return the path for the mosaic file that has been created as the last item....
 
     puts "complete"
     endTime = Time.now

@@ -27,6 +27,7 @@ class MosaicsController < ApplicationController
     @mosaic.save
     paths = MosaicMaker.create_new(@mosaic)
     @mosaic.update_attributes(path: paths[0], path_small: paths[1] )
+    current_user.images.delete_all
     respond_with(@mosaic)
   end
 
