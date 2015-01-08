@@ -13,17 +13,19 @@
   </head>
   
   <body>
+    <div id="test">
+      <%= render 'shared/site_navbar' %>
 
-    <%= render 'shared/site_navbar' %>
-
-    <div class="container-fluid" id="content_container">
-      <div class="row">
-      <%= yield %>
+      <div class="container-fluid" id="content_container">
+        <div class="row">
+          <%= yield %>
+        </div>
       </div>
-    </div>
 
-    <%= render 'shared/site_footer' %>
-    <%= render 'shared/email_modal' %>
+      <%= render 'shared/site_footer' %>
+      <%= render 'shared/email_modal' %>
+      
+    </div>
 
   </body>
 </html>
