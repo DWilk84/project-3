@@ -15,24 +15,24 @@
       </div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-4">
-            <p>With PixelPic you can create a unique, personal artwork in just a few steps, using your own pictures...</p>
+          <div class="col-md-6" id="about_text">
+            <h4>With PixelPic you can create a unique, personal artwork in just a few steps, using your own pictures...</h4>
             <ul>
               <li>Create the perfect wedding memory</li>
               <li>Celebrate a special birthday or anniversary</li>
-              <li>Make a unique yearbook</li>
-              <li>Make anything!</li>
-              <li>Hover over the image to the right to zoom in....</li>
+              <li>Make a unique yearbook for your school, college or sports team</li>
+              <li>Hover over the following image to zoom in and see PixelPic in action!</li>
+              <li>Scroll down for more examples, and when you're ready....</li>
             </ul>
             <div class="text-center">
               <% if user_signed_in? %>
               <%= link_to 'Get Started', images_path, class: "btn btn-primary" %>
               <% else %>
-              <a href="#myModal" data-toggle="modal" class="btn btn-primary">Sign in to Get Started</a>
+              <h3 class="text-primary">Sign in to make your own PixelPic!</h3>
               <% end %>
             </div>
           </div>
-          <div class="col-md-8 text-center" id="small_image">
+          <div class="col-md-6 text-center" id="small_image">
             <%= image_tag("https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example1_small.jpg", id: "zoom_01", data: {"zoom-image" => "https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/pixelpic_example1_large.jpg"}) %>
           </div>
         </div>
@@ -44,33 +44,29 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h2 class="text-primary text-center">How it works</h2>
+        <h4 class="text-muted text-center"><em>Create your PixelPic in just a few simple steps...</em></h4>
       </div>
       <div class="panel-body">
-        <div class="row">
-          <div class="col-sm-12">
-            <p>Create your PixelPic in just a few simple steps...</p>
-          </div>
-        </div>
         <div class="row text-center">
           <div class="col-md-4">
-            <p>1) upload your own images from your computer or from facebook!</p>
+            <p><strong>1) upload your own images from your computer or from facebook!</strong></p>
           </div>
           <div class="col-md-4">
-            <p>2) select the image you want as the main picture</p>
+            <p><strong>2) select the image you want as the main picture</strong></p>
           </div>
           <div class="col-md-4">
-            <p>3) choose which size and layout you want... and that's it!</p>
+            <p><strong>3) PixelPic will create an amazing mosaic for you out of the images you uploaded!</strong></p>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
-            <img class="img-responsive center-block" src="http://placesheen.com/300/200" alt="img" style="width:100%">
+          <div class="col-md-4 image_container">
+            <img class="img-responsive center-block" src="https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/how-it-works-1.jpg">
           </div>
-          <div class="col-md-4">
-            <img class="img-responsive center-block" src="http://placesheen.com/300/200" alt="img" style="width:100%">
+          <div class="col-md-4 image_container">
+            <img class="img-responsive center-block" src="https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/how-it-works-2.jpg">
           </div>
-          <div class="col-md-4">
-            <img class="img-responsive center-block" src="http://placesheen.com/300/200" alt="img" style="width:100%">
+          <div class="col-md-4 image_container">
+            <img class="img-responsive center-block" src="https://s3-eu-west-1.amazonaws.com/pixelpic/Resources/how-it-works-3.jpg">
           </div>
         </div>
       </div>
