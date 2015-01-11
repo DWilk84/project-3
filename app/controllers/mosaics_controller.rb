@@ -5,7 +5,7 @@ class MosaicsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @mosaics = Mosaic.all
+    @mosaics = current_user.mosaics
     respond_with(@mosaics)
   end
 

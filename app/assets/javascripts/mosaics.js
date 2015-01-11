@@ -6,16 +6,26 @@ toggleTargetSelect = function(){
   $this = $(this);
   $('.target_image_container').removeClass('image_selected');
   $this.addClass('image_selected');
+  $('#btn_step_3').removeClass('disabled')
 }
 
 goToStep3 = function(){
-  console.log('goToStep3 clicked');
+  $('#target_select').fadeOut(function(){
+    $('#extra_details').fadeIn();
+  });
 }
 
 createMosaic = function(){
   var target = parseInt($('.image_selected').attr('id'));
   var name = $('#name_input').val();
+  if (name.length > 0) {
+    name
+  } else {
+    name = "My PixelPic"
+  };
+
   var pics = $('.target_image_container');
+
   image_ids = []
   $.each(pics, function(k, v){
     image_ids.push(parseInt(v.id));
@@ -31,7 +41,6 @@ createMosaic = function(){
     data: {mosaic: data},
     dataType: "JSON"
   }).success(function(response){
-    console.log(response);
     window.location.href = response.id.toString()
   });
 };
