@@ -16,6 +16,7 @@ goToStep3 = function(){
 }
 
 createMosaic = function(){
+  $('body').addClass('loading');
   var target = parseInt($('.image_selected').attr('id'));
   var name = $('#name_input').val();
   if (name.length > 0) {
@@ -41,6 +42,7 @@ createMosaic = function(){
     data: {mosaic: data},
     dataType: "JSON"
   }).success(function(response){
+    $('body').removeClass('loading');
     window.location.href = response.id.toString()
   });
 };

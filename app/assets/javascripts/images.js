@@ -4,7 +4,6 @@
 
 
 getFacebookImages = function(){
-  console.log("clicked")
   $this = $(this);
   $this.removeClass("fb-btn-unclicked")
 
@@ -18,7 +17,8 @@ getFacebookImages = function(){
     url: "/images",
     type: "GET",
     dataType: "JSON",
-  }).success(function(data){
+  }).complete(function(data){
+    debugger;
     $.each(data, function(k, album){
       var album_name = album.name;
       var album_value = removeSpaces(album.name);
@@ -51,7 +51,6 @@ toggleAlbumShow = function(){
 addToUploadedImages = function(data){
   var id = data.id;
   var url = data.file.url;
-  // debugger;
   var element = $('<div class="uploaded_image_container" id="' + id + '">' +
     '<img alt="" src="' + url + '" class="uploaded_image"/>' +
     '</div>')
@@ -76,7 +75,6 @@ removeAlbumSelect = function(){
 
 uploadFBImages = function(){
   var pics = $('.fb_image_container.image_selected > img');
-  // debugger;
   $.each(pics, function(k, v){
     var data = {
       remote_file_url: v.src,

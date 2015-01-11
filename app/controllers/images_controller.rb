@@ -9,8 +9,8 @@ class ImagesController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        current_user ? (@fb_albums = User.get_fb_albums(current_user)) : nil
-        respond_with(@images, @fb_albums)
+        current_user ? (@fb_albums = User.get_fb_albums(current_user), @message = "success :-)") : @message = "Failure: FB account not linked"
+        respond_with(@images, @fb_albums, @message)
       end
     end
   end
