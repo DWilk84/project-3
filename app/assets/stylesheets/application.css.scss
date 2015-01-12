@@ -28,30 +28,34 @@ html, body {
     position: relative;
 
     .navbar {
-      height: 50px;
+      /*height: 50px;*/
       box-shadow: 0 1px 10px 0px black;
 
       #nav_logo {
         width: 200px;
         position: relative;
-        top: 20px;
+        top: 30px;
         border: 1px solid #bf3e11;
         border-radius: 10px;
         box-shadow: 0 1px 5px 0px black;
       }
 
+      .collapse.in {
+        /*background-color: #dd4814;*/
+      }
+
     }
 
     #content_container {
-      padding-top: 100px;
+      padding-top: 120px;
       padding-bottom: 350px;
       
       #pages_index {
         #how-it-works:before, #gallery:before, #products:before, #contact-us:before { 
           display: block; 
           content: " "; 
-          margin-top: -70px; 
-          height: 70px; 
+          margin-top: -80px; 
+          height: 80px; 
           visibility: hidden; 
         }
 

@@ -8,7 +8,7 @@ getFacebookImages = function(){
   $this.removeClass("fb-btn-unclicked")
 
   var $body = $('body');
-  // $body.addClass('loading');
+  $body.addClass('loading');
 
   var $fb_album_select = $('#fb_album_select');
   var $fb_albums = $('#fb_albums');
@@ -17,8 +17,8 @@ getFacebookImages = function(){
     url: "/images",
     type: "GET",
     dataType: "JSON",
-  }).complete(function(data){
-    debugger;
+  }).success(function(data){
+    // debugger;
     $.each(data, function(k, album){
       var album_name = album.name;
       var album_value = removeSpaces(album.name);
@@ -34,8 +34,8 @@ getFacebookImages = function(){
       });
     });
     $fb_album_select.css("display", "block");
-  $body.removeClass('loading');
   });
+  $body.removeClass('loading');
 };
 
 removeSpaces = function(string){
