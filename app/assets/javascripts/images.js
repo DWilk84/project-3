@@ -18,7 +18,6 @@ getFacebookImages = function(){
     type: "GET",
     dataType: "JSON",
   }).success(function(data){
-    // debugger;
     $.each(data, function(k, album){
       var album_name = album.name;
       var album_value = removeSpaces(album.name);
@@ -124,9 +123,7 @@ deleteImages = function(images){
 $(function(){
 
   $('#fb-btn-container').on('click', '.fb-btn-unclicked', getFacebookImages);
-
   $('#fb_album_select').on('change', toggleAlbumShow);
-
   $('#fb-modal').on('click', '.fb_image_container', toggleImageSelect);
   $('#fb-modal').on('click', '#select_all', addAlbumSelect);
   $('#fb-modal').on('click', '#deselect_all', removeAlbumSelect);
